@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WLVG_app;
+package WLVG_app.testing;
 
 /**
- * testharness 
+ * testharness
  * Tests API calls and such for M02-A03
  * @author eugene
  */
