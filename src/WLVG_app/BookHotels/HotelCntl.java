@@ -25,7 +25,7 @@ public class HotelCntl {
     * Retrieves list of vacancies
     * @return Existing list of vacancies
     */
-    public VacancyList getVacancies() {
+    public VacancyList getVacancyList() {
         return vacancies;
     }
     
@@ -34,14 +34,7 @@ public class HotelCntl {
     */
     public void addVacancy() {
         
-    }
-    
-    /**
-    * Removes vacancy from list
-    */
-    public void removeVacancy() {
-        
-    }
+    }   
     
     /**
     * Opens Input UI
