@@ -25,7 +25,7 @@ public class VacancyList {
     * Adds vacancies to list
     */
     private void initializeVacancies() {
-        
+        this.vacancies.add(new Vacancy());
     }
     
     /**
