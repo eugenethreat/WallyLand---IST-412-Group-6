@@ -35,40 +35,40 @@ public class ParkViewer {
     * calls createParklistView 
     * calls createParkMapView 
     */
-    private void spawnParkView(){
+    public void spawnParkView(){
     }
     
     /**
     * Sets controller (for linking with other modules)
     */
-    private void setController(){
+    public void setController(){
         
     }
     
     /**
     * Sets controller (for linking with other modules)
     */
-    private void createParklistView(){
+    public void createParklistView(){
 //        creates panel containing the list of parks 
     }
     
     /**
     * Creates panel containing park map 
     */
-    private void createParkMapView(){
+    public void createParkMapView(){
 
     }
     
     /**
     * Shows panel containing park list 
     */
-    private void showParks(){
+    public void showParks(){
     }
     
     /**
     * @info Shows panel containing park map 
     */
-    private void showParkMap(){
+    public void showParkMap(){
     }
     
 }
