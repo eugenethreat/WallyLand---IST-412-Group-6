@@ -44,7 +44,10 @@ public class testharness {
     public static void main(String[] args) {
         System.out.println("testing the test harness");
 
-        //JACK TESTS RUNNING 
+        // ************************************
+        // *****   package Payments  ******
+        // ************************************
+        // test stubs for Payments
         testBillingInfo();
         testFinalizedSale();
         testPaymentCntl();
@@ -65,9 +68,9 @@ public class testharness {
 
         boolFoodStatus = false;
         foodController.addMenu();
-//        if (!(foodController.getMenus().getMenu().isEmpty())) {
-//            boolFoodStatus = true;
-//        }
+        if (!(foodController.getMenus().getMenu().isEmpty())) {
+            boolFoodStatus = true;
+        }
 
         System.out.println("FoodCntl.addMenu() Success: " + boolFoodStatus);
 
@@ -101,7 +104,7 @@ public class testharness {
 
         boolHotelStatus = false;
 
-//        hotelController.addVacancy(vacancy);
+        //hotelController.addVacancy(vacancy);
         hotelController.addVacancy();
 
         if (!(hotelController.getVacancyList()
@@ -128,6 +131,11 @@ public class testharness {
         System.out.println(
                 "VacancyList.getAmenities() Output: " + vacancy.getAmenities());
 
+        
+        // ************************************
+        // *****   package ViewWaitTimes  ******
+        // ************************************
+        //Test stubs for ViewWaitTimes
         Time t = null;
 
         rideList = new RideList("Wally Coaster", "8 AM - 6 PM", t, 30);
@@ -144,15 +152,21 @@ public class testharness {
         }
 
         System.out.println("rideList.checkCapacity()" + rideList.checkCapacity());
+        
+        // ************************************
+    // *****   package Ticketing  ******
+    // ************************************
+    // test stubs for Ticketing
 
-    }
+        
 
-    /**
-     * Eugene Tests Ticketing module
-     *
-     * @return testPassed - whether all the tests are passed
-     * @author eugene
-     */
+    } //end of main 
+
+ 
+    // ************************************
+    // *****   package Ticketing  ******
+    // ************************************
+    // test stubs for Ticketing
     public static boolean eugeneTests() {
         boolean getUserTest1 = false;
         boolean checkExpiredTest1 = false;
