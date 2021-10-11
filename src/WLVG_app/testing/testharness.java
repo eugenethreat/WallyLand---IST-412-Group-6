@@ -6,6 +6,9 @@ import WLVG_app.BookHotels.VacancyList;
 import WLVG_app.OrderFood.FoodCntl;
 import WLVG_app.OrderFood.Menu;
 import WLVG_app.OrderFood.MenuList;
+import WLVG_app.Payments.BillingInfo;
+import WLVG_app.Payments.FinalizedSale;
+import WLVG_app.Payments.PaymentCntl;
 import WLVG_app.Ticketing.Park;
 import WLVG_app.Ticketing.ParkViewer;
 import WLVG_app.Ticketing.Ticket;
@@ -40,6 +43,12 @@ public class testharness {
 
     public static void main(String[] args) {
         System.out.println("testing the test harness");
+
+        //JACK TESTS RUNNING 
+        testBillingInfo();
+        testFinalizedSale();
+        testPaymentCntl();
+        testPaymentList();
 
         // ************************************
         // *****   package OrderFood  ******
@@ -94,7 +103,6 @@ public class testharness {
 
 //        hotelController.addVacancy(vacancy);
         hotelController.addVacancy();
-
 
         if (!(hotelController.getVacancyList()
                 .getVacancies().isEmpty())) {
@@ -161,25 +169,23 @@ public class testharness {
         ArrayList<Park> listOfParks = new ArrayList();
         listOfParks.add(p1);
         listOfParks.add(p2);
-        
-        Date timeThatWillPass = new Date(2021, 9,11);
-        Date timeThatWillFail = new Date(2021, 9, 9);
-                
-        Ticket demo = new Ticket(1, 1, 5, timeThatWillFail);
-        Ticket demoPass = new Ticket(1,1,5, timeThatWillPass);
 
-        
+        Date timeThatWillPass = new Date(2021, 9, 11);
+        Date timeThatWillFail = new Date(2021, 9, 9);
+
+        Ticket demo = new Ticket(1, 1, 5, timeThatWillFail);
+        Ticket demoPass = new Ticket(1, 1, 5, timeThatWillPass);
+
         ParkViewer pv = new ParkViewer(listOfParks);
 
-        
         //Park         
-        if(p1.checkExpired(demo) == false && p1.checkExpired(demoPass) == true){
+        if (p1.checkExpired(demo) == false && p1.checkExpired(demoPass) == true) {
             checkExpiredTest1 = true;
         }
-        
+
         //Other random stubs         
         System.out.println("Parkname: " + p1.getParkName());
-        System.out.println("ParkId : "+ p1.getParkId() );
+        System.out.println("ParkId : " + p1.getParkId());
         System.out.println("ParkAddress: " + p1.getParkAddress());
         System.out.println("ParkInfo: " + p1.getParkInfo());
         System.out.println("openingTime: " + p1.getOpeningTime());
@@ -193,27 +199,77 @@ public class testharness {
         pv.createParkMapView();
         pv.showParks();
         pv.showParkMap();
-        
-        
+
         //Ticket 
         //getUser() test 
         if (Integer.compare(demo.getUser(), 1) == 0) {
             System.out.println("getUser() test passed");
-            getUserTest1 = true; 
+            getUserTest1 = true;
         } else {
             System.out.println("test failed");
         }
 
         //getTicketValidDuring() test
-        System.out.println("ticket valid during... "+ demo.getTicketValidDuring());
-        
+        System.out.println("ticket valid during... " + demo.getTicketValidDuring());
+
         //check if all tests were passed and return a val 
-        if(getUserTest1 && checkExpiredTest1  ){
+        if (getUserTest1 && checkExpiredTest1) {
             testsPassed = true;
         }
-        
+
         return testsPassed;
 
+    }
+
+    //JACK TESTS
+    public static void testBillingInfo() {
+        //String firstName, String lastName, double cardNumber, int expirationDate, int securityCode, int billingZipCode
+        BillingInfo b1 = new BillingInfo("first name", "last name", 90340946, 1021, 867, 19374);
+        if (b1 != null) {
+            System.out.println("Billing Info was successfully implemented");
+            System.out.println(b1.toString());
+        }
+
+        b1.setFirstName("jack");
+        b1.setLastName("gallagher");
+        b1.setCardNumber(359845684);
+        b1.setExpirationDate(1997);
+        b1.setSecurityCode(867);
+        b1.setBillingZipCode(19374);
+        System.out.println("User has successfully input their billing info.");
+        System.out.println(b1);
+
+        b1.getFirstName();
+        b1.getLastName();
+        b1.getCardNumber();
+        b1.getExpirationDate();
+        b1.getSecurityCode();
+        b1.getBillingZipCode();
+        System.out.println("Received all information");
+        System.out.println(b1);
+
+        b1.toString();
+        System.out.println(b1);
+
+    }
+
+    public static void testFinalizedSale() {
+        FinalizedSale f1 = new FinalizedSale("First name", "last name", "56.56", "item purchased");
+
+        if (f1 != null) {
+            System.out.println("The sale was finalized");
+            System.out.println(f1.toString());
+        }
+    }
+
+    public static void testPaymentCntl() {
+        PaymentCntl p1 = new PaymentCntl();
+
+        p1.getPayments();
+
+    }
+
+    public static void testPaymentList() {
 
     }
 

@@ -20,10 +20,10 @@ public class FinalizedSale
      */
     
     
-    String firstName;
-    String lastName;
-    String paymentAmount;
-    String itemPurchased;
+    public String firstName;
+    public String lastName;
+    public String paymentAmount;
+    public String itemPurchased;
     
     /**
      * String for showing that the sale was finalized
