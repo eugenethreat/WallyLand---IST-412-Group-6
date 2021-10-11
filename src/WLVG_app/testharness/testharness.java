@@ -1,4 +1,4 @@
-package WLVG_app.testing;
+package WLVG_app.testharness;
 
 import WLVG_app.BookHotels.HotelCntl;
 import WLVG_app.BookHotels.Vacancy;
@@ -17,6 +17,7 @@ import WLVG_app.ViewWaitTimes.MapController;
 import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.ViewWaitTimes.RideList;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,14 +31,17 @@ import java.util.Date;
 //@author tomia, eugene, graeme, jack, ellen
 public class testharness {
 
+    //Viewing Rides 
     static private RideList rideList;
     static private MapUI mapUI;
     static private MapController mapCntl;
     static private Map map;
     static private ArrayList<RideList> listOfRides;
+    //Hotels 
     private static HotelCntl hotelController;
     private static Vacancy vacancy;
     private static VacancyList vacancyList;
+    //Ordering Food 
     private static MenuList menuList;
     private static Menu menu;
     private static FoodCntl foodController;
@@ -59,10 +63,10 @@ public class testharness {
         // ************************************
         // test stubs for FoodCntl
         boolean boolFoodStatus = false;
-        
+
         foodController = new FoodCntl();
-        
-        System.out.println("aaaa" + foodController.getMenus());
+        menu = new Menu();
+        menuList = new MenuList();
 
         if (foodController.getMenus() == menuList) {
             boolFoodStatus = true;
@@ -98,6 +102,9 @@ public class testharness {
         // *****   package BookHotel  ******
         // ************************************
         // test stubs for HotelCntl
+        hotelController = new HotelCntl();
+        vacancyList = new VacancyList();
+
         boolean boolHotelStatus = false;
         if (hotelController.getVacancyList() == vacancyList) {
             boolHotelStatus = true;
@@ -106,8 +113,8 @@ public class testharness {
         System.out.println("HotelCntl.getVacancyList() Success: " + boolHotelStatus);
 
         boolHotelStatus = false;
-        //hotelController.addVacancy(vacancy);
-        hotelController.addVacancy();
+        hotelController.addVacancy(vacancy);
+        vacancy = new Vacancy("Sample Hotel", LocalDate.now(), LocalDate.MAX, "Suite", "King", "Big Suite", "minibar, roomservice. ");
 
         if (!(hotelController.getVacancyList()
                 .getVacancies().isEmpty())) {
@@ -151,7 +158,7 @@ public class testharness {
             boolCapacity = true;
         }
 
-        System.out.println("rideList.checkCapacity()" + rideList.checkCapacity());
+        System.out.println("rideList.checkCapacity() " + rideList.checkCapacity());
 
         // ************************************
         // *****   package Ticketing  ******
@@ -159,6 +166,8 @@ public class testharness {
         // test stubs for Ticketing
         eugeneTests();
         
+        System.out.println("ALL TESTS DONE....");
+
     } //end of main 
 
     // ************************************

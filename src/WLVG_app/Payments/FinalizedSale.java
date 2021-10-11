@@ -8,31 +8,46 @@ package WLVG_app.Payments;
 /**
  *
  * Page to share the finalized sale information
+ *
  * @author jackgallagher
  */
-public class FinalizedSale 
-{
+public class FinalizedSale {
+
     /**
-     * @param firstName first name of the customer
-     * @param lastName last name of the customer
-     * @param paymentAmount the amount the customer paid
-     * @param itemPurchased the item(s) the customer purchased
+     * Constructor
+     *
+     * @param firstName
+     * @param lastName
+     * @param itemPurchased
+     * @param paymentAmount
      */
-    
-    
+    public FinalizedSale(String firstName, String lastName, String paymentAmount, String itemPurchased) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.paymentAmount = paymentAmount;
+        this.itemPurchased = itemPurchased;
+    }
+
     public String firstName;
+
+    /**
+     *
+     */
     public String lastName;
+
+    /**
+     *
+     */
     public String paymentAmount;
+
+    /**
+     *
+     */
     public String itemPurchased;
     
-    /**
-     * String for showing that the sale was finalized
-     */
-    public FinalizedSale(String firstName, String lastName, String paymentAmount, String itemPurchased)
-    {
-        
+    @Override
+    public String toString(){
+        return this.firstName + " " + this.lastName + " " + this.itemPurchased + " " + this.paymentAmount;
     }
-    
-    
-    
+
 }

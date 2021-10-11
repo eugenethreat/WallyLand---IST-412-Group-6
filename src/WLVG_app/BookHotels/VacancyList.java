@@ -18,7 +18,7 @@ public class VacancyList {
     * Constructor for the list of vacancies
     */
     public VacancyList() {
-
+        vacancies = new ArrayList();
     }
     
     /**

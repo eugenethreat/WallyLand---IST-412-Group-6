@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class MenuList {
     
-     private ArrayList<Menu> menus;
+     private ArrayList<Menu> menus = new ArrayList();
 
     /**
     * Constructor for the list of menus

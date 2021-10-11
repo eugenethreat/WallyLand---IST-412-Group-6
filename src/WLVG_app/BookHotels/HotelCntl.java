@@ -31,8 +31,9 @@ public class HotelCntl {
     
     /**
     * Adds to list of vacancies
+     * @param v
     */
-    public void addVacancy() {
+    public void addVacancy(Vacancy v) {
         
     }   
     

@@ -23,9 +23,10 @@ public class Menu {
     private Integer price4;
     private String food5;
     private Integer price5;
-    
+
     /**
-    * Constructor for Menu object
+     * Constructor for Menu object
+     *
      * @param location Address within the theme park of the food location
      * @param hours Hours that the location is open
      * @param food1 Name representing a 1st food on the menu
@@ -38,7 +39,7 @@ public class Menu {
      * @param price4 Number representing a 4th price on the menu
      * @param food5 Name representing a 5th food on the menu
      * @param price5 Number representing a 5th price on the menu
-    */
+     */
     public Menu(String location, String hours, String food1, Integer price1, String food2, Integer price2, String food3, Integer price3, String food4, Integer price4, String food5, Integer price5) {
         this.location = location;
         this.hours = hours;
@@ -52,10 +53,10 @@ public class Menu {
         this.price4 = price4;
         this.food5 = food5;
         this.price5 = price5;
-        
+
     }
-    
-     Menu() {
+
+    public Menu() {
         this.location = "";
         this.hours = "";
         this.food1 = "";
@@ -68,7 +69,7 @@ public class Menu {
         this.price3 = 0;
         this.price4 = 0;
         this.price5 = 0;
-   
+
     }
 
     /**
@@ -238,8 +239,5 @@ public class Menu {
     public void setPrice5(Integer price5) {
         this.price5 = price5;
     }
-     
-   
-    
-}
 
+}

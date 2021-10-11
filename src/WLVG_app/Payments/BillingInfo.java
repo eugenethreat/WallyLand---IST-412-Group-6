@@ -31,6 +31,12 @@ public class BillingInfo {
     /**
      *
      * Constructor for all billing info
+     * @param firstName
+     * @param lastName
+     * @param cardNumber
+     * @param billingZipCode
+     * @param securityCode
+     * @param expirationDate
      */
     public BillingInfo(String firstName, String lastName, double cardNumber, int expirationDate, int securityCode, int billingZipCode) {
         this.firstName = firstName;
@@ -53,6 +59,7 @@ public class BillingInfo {
     /**
      *
      * Setter for the customer's first name
+     * @param firstName
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -69,6 +76,7 @@ public class BillingInfo {
 
     /**
      * Setter for the customers last name
+     * @param lastName
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -85,6 +93,7 @@ public class BillingInfo {
 
     /**
      * Setter for the customer's credit card number
+     * @param cardNumber
      */
     public void setCardNumber(double cardNumber) {
         this.cardNumber = cardNumber;
@@ -101,6 +110,7 @@ public class BillingInfo {
 
     /**
      * Setter for the expiration date
+     * @param expirationDate
      */
     public void setExpirationDate(int expirationDate) {
         this.expirationDate = expirationDate;
@@ -117,6 +127,7 @@ public class BillingInfo {
 
     /**
      * Setter for the credit card security code
+     * @param securityCode
      */
     public void setSecurityCode(int securityCode) {
         this.securityCode = securityCode;
@@ -133,9 +144,15 @@ public class BillingInfo {
 
     /**
      * Setter for the customer's zip code
+     * @param billingZipCode
      */
     public void setBillingZipCode(int billingZipCode) {
         this.billingZipCode = billingZipCode;
+    }
+    
+    @Override
+    public String toString(){
+        return this.firstName + " " +  this.lastName + " " + this.billingZipCode + " " + this.cardNumber + " " + this.expirationDate + " " + this.securityCode;
     }
 
 }
