@@ -6,11 +6,12 @@
 package WLVG_app.Payments;
 
 /**
- * Page that includes all billing info 
+ * Page that includes all billing info
+ *
  * @author jackgallagher
  */
-public class BillingInfo 
-{
+public class BillingInfo {
+
     /**
      * @param firstName first name of the purchaser
      * @param lastName last name of the purchaser
@@ -19,27 +20,30 @@ public class BillingInfo
      * @param securityCode; three digit code on the back of the credit card
      * @param billingZipCode; the billing zip code of where the purchaser lives
      */
-    
-    
-        private String firstName;
-        private String lastName;
-        private double cardNumber;
-        private int expirationDate;
-        private int securityCode;
-        private int billingZipCode;
 
-   
-   /**
-    * 
-    * Constructor for all billing inf
-    */     
-    public BillingInfo(String firstName, String lastName, double cardNumber, int expirationDate, int securityCode, int billingZipCode) 
-        {
-       
-        }
+    private String firstName;
+    private String lastName;
+    private double cardNumber;
+    private int expirationDate;
+    private int securityCode;
+    private int billingZipCode;
+
+    /**
+     *
+     * Constructor for all billing info
+     */
+    public BillingInfo(String firstName, String lastName, double cardNumber, int expirationDate, int securityCode, int billingZipCode) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.cardNumber = cardNumber; 
+        this.expirationDate = expirationDate;
+        this.securityCode = securityCode;
+        this.billingZipCode = billingZipCode;
+    }
 
     /**
      * Getter for the first name variables
+     *
      * @return the customer's first name
      */
     public String getFirstName() {
@@ -47,13 +51,16 @@ public class BillingInfo
     }
 
     /**
-     * 
-     * Setter for the customer's first name 
+     *
+     * Setter for the customer's first name
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }/**
+    }
+
+    /**
      * Getter for the customer's last name
+     *
      * @return the customer's last name
      */
     public String getLastName() {
@@ -66,8 +73,10 @@ public class BillingInfo
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     /**
      * Getter for the customer's card number
+     *
      * @return the customer's card number
      */
     public double getCardNumber() {
@@ -83,32 +92,39 @@ public class BillingInfo
 
     /**
      * Getter for the credit card expiration date
+     *
      * @return the card expiration date
      */
     public int getExpirationDate() {
         return expirationDate;
     }
+
     /**
      * Setter for the expiration date
      */
     public void setExpirationDate(int expirationDate) {
         this.expirationDate = expirationDate;
     }
+
     /**
      * Getter for the security code
+     *
      * @return the credit card security code
      */
     public int getSecurityCode() {
         return securityCode;
     }
+
     /**
      * Setter for the credit card security code
      */
     public void setSecurityCode(int securityCode) {
         this.securityCode = securityCode;
     }
+
     /**
      * Getter for the customer's zip code
+     *
      * @return the customer's zip code
      */
     public int getBillingZipCode() {
@@ -121,17 +137,5 @@ public class BillingInfo
     public void setBillingZipCode(int billingZipCode) {
         this.billingZipCode = billingZipCode;
     }
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
+}

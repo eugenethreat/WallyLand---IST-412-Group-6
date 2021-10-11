@@ -27,7 +27,7 @@ import java.util.Date;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//@author tomia
+//@author tomia, eugene, graeme, jack, ellen
 public class testharness {
 
     static private RideList rideList;
@@ -59,6 +59,10 @@ public class testharness {
         // ************************************
         // test stubs for FoodCntl
         boolean boolFoodStatus = false;
+        
+        foodController = new FoodCntl();
+        
+        System.out.println("aaaa" + foodController.getMenus());
 
         if (foodController.getMenus() == menuList) {
             boolFoodStatus = true;
