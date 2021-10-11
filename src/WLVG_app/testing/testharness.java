@@ -40,6 +40,7 @@ public class testharness {
     private static VacancyList vacancyList;
     private static MenuList menuList;
     private static Menu menu;
+    private static FoodCntl foodController;
 
     public static void main(String[] args) {
         System.out.println("testing the test harness");
@@ -58,8 +59,6 @@ public class testharness {
         // ************************************
         // test stubs for FoodCntl
         boolean boolFoodStatus = false;
-
-        FoodCntl foodController = new FoodCntl();
 
         if (foodController.getMenus() == menuList) {
             boolFoodStatus = true;
@@ -103,7 +102,6 @@ public class testharness {
         System.out.println("HotelCntl.getVacancyList() Success: " + boolHotelStatus);
 
         boolHotelStatus = false;
-
         //hotelController.addVacancy(vacancy);
         hotelController.addVacancy();
 
@@ -112,8 +110,7 @@ public class testharness {
             boolHotelStatus = true;
         }
 
-        System.out.println(
-                "HotelCntl.addVacancy() Success: " + boolHotelStatus);
+        System.out.println("HotelCntl.addVacancy() Success: " + boolHotelStatus);
 
         // test stubs for VacancyList
         System.out.println(
@@ -131,7 +128,6 @@ public class testharness {
         System.out.println(
                 "VacancyList.getAmenities() Output: " + vacancy.getAmenities());
 
-        
         // ************************************
         // *****   package ViewWaitTimes  ******
         // ************************************
@@ -152,17 +148,15 @@ public class testharness {
         }
 
         System.out.println("rideList.checkCapacity()" + rideList.checkCapacity());
-        
+
         // ************************************
-    // *****   package Ticketing  ******
-    // ************************************
-    // test stubs for Ticketing
-
+        // *****   package Ticketing  ******
+        // ************************************
+        // test stubs for Ticketing
+        eugeneTests();
         
-
     } //end of main 
 
- 
     // ************************************
     // *****   package Ticketing  ******
     // ************************************
@@ -235,7 +229,7 @@ public class testharness {
 
     }
 
-    //JACK TESTS
+    //Method stubs for Payments 
     public static void testBillingInfo() {
         //String firstName, String lastName, double cardNumber, int expirationDate, int securityCode, int billingZipCode
         BillingInfo b1 = new BillingInfo("first name", "last name", 90340946, 1021, 867, 19374);
