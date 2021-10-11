@@ -1,62 +1,67 @@
-
 package WLVG_app.testing;
 
+import WLVG_app.BookHotels.HotelCntl;
+import WLVG_app.BookHotels.Vacancy;
+import WLVG_app.BookHotels.VacancyList;
+import WLVG_app.OrderFood.FoodCntl;
+import WLVG_app.OrderFood.Menu;
+import WLVG_app.OrderFood.MenuList;
+import WLVG_app.Ticketing.Park;
+import WLVG_app.Ticketing.ParkViewer;
+import WLVG_app.Ticketing.Ticket;
 import WLVG_app.ViewWaitTimes.Map;
 import WLVG_app.ViewWaitTimes.MapController;
 import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.ViewWaitTimes.RideList;
 import java.sql.Time;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//@author tomia
+public class testharness {
 
- //@author tomia
- 
-public class testharness
-{
     static private RideList rideList;
     static private MapUI mapUI;
     static private MapController mapCntl;
     static private Map map;
     static private ArrayList<RideList> listOfRides;
-    
-    
-    public static void main(String[] args)
-    {
-        Time t = null;
     private static HotelCntl hotelController;
     private static Vacancy vacancy;
     private static VacancyList vacancyList;
-    
-    public static void main(String[] args){
+    private static MenuList menuList;
+    private static Menu menu;
+
+    public static void main(String[] args) {
         System.out.println("testing the test harness");
-        
+
         // ************************************
         // *****   package OrderFood  ******
         // ************************************
-        
         // test stubs for FoodCntl
         boolean boolFoodStatus = false;
-        if(foodController.getMenus() == menuList)
-        {
+
+        FoodCntl foodController = new FoodCntl();
+
+        if (foodController.getMenus() == menuList) {
             boolFoodStatus = true;
         }
         System.out.println("FoodCntl.getMenus() Success: " + boolFoodStatus);
-        
+
         boolFoodStatus = false;
         foodController.addMenu();
-        if(!(foodController.getMenus().getMenus().isEmpty())) {
-            boolFoodStatus = true;
-        }
-        
+//        if (!(foodController.getMenus().getMenu().isEmpty())) {
+//            boolFoodStatus = true;
+//        }
+
         System.out.println("FoodCntl.addMenu() Success: " + boolFoodStatus);
-    
-        
-        
+
         // test stubs for Menu
         System.out.println("MenuList.getLocation() Output: " + menu.getLocation());
         System.out.println("MenuList.getHours() Output: " + menu.getHours());
@@ -70,42 +75,69 @@ public class testharness
         System.out.println("MenuList.getPrice4() Output: " + menu.getPrice4());
         System.out.println("MenuList.getFood5() Output: " + menu.getFood5());
         System.out.println("MenuList.getPrice5() Output: " + menu.getPrice5());
-    
-        
-        
+
         // test stubs for MenuList
-        System.out.println("MenuList.getMenuList() Output: " + menuList.getMenus());
-}
-        
+        System.out.println("MenuList.getMenuList() Output: " + menuList.getMenu());
+
         // ************************************
         // *****   package BookHotel  ******
         // ************************************
-        
         // test stubs for HotelCntl
         boolean boolHotelStatus = false;
-        if(hotelController.getVacancyList() == vacancyList)
-        {
+        if (hotelController.getVacancyList() == vacancyList) {
             boolHotelStatus = true;
         }
+
         System.out.println("HotelCntl.getVacancyList() Success: " + boolHotelStatus);
-        
+
         boolHotelStatus = false;
-        hotelController.addVacancy(vacancy);
-        if(!(hotelController.getVacancyList().getVacancies().isEmpty())) {
+
+//        hotelController.addVacancy(vacancy);
+        hotelController.addVacancy();
+
+
+        if (!(hotelController.getVacancyList()
+                .getVacancies().isEmpty())) {
             boolHotelStatus = true;
         }
-        System.out.println("HotelCntl.addVacancy() Success: " + boolHotelStatus);
-         
+
+        System.out.println(
+                "HotelCntl.addVacancy() Success: " + boolHotelStatus);
+
         // test stubs for VacancyList
-        System.out.println("VacancyList.getVacancyList() Output: " + vacancyList.getVacancies());
-        
+        System.out.println(
+                "VacancyList.getVacancyList() Output: " + vacancyList.getVacancies());
+
         // test stubs for Vacancy
-        System.out.println("VacancyList.getHotelName() Output: " + vacancy.getHotelName());
-        System.out.println("VacancyList.getRoomType() Output: " + vacancy.getRoomType());
-        System.out.println("VacancyList.getBed() Output: " + vacancy.getBed());
-        System.out.println("VacancyList.getLayout() Output: " + vacancy.getLayout());
-        System.out.println("VacancyList.getAmenities() Output: " + vacancy.getAmenities());
-    }   
+        System.out.println(
+                "VacancyList.getHotelName() Output: " + vacancy.getHotelName());
+        System.out.println(
+                "VacancyList.getRoomType() Output: " + vacancy.getRoomType());
+        System.out.println(
+                "VacancyList.getBed() Output: " + vacancy.getBed());
+        System.out.println(
+                "VacancyList.getLayout() Output: " + vacancy.getLayout());
+        System.out.println(
+                "VacancyList.getAmenities() Output: " + vacancy.getAmenities());
+
+        Time t = null;
+
+        rideList = new RideList("Wally Coaster", "8 AM - 6 PM", t, 30);
+        mapUI = new MapUI();
+        mapCntl = new MapController(rideList);
+        map = new Map("West section", listOfRides);
+
+        System.out.println("Testing the test harness");
+
+        boolean boolCapacity = false;
+
+        if (rideList.checkCapacity()) {
+            boolCapacity = true;
+        }
+
+        System.out.println("rideList.checkCapacity()" + rideList.checkCapacity());
+
+    }
 
     /**
      * Eugene Tests Ticketing module
@@ -130,19 +162,59 @@ public class testharness
         listOfParks.add(p1);
         listOfParks.add(p2);
         
-        rideList = new RideList("Wally Coaster", "8 AM - 6 PM", t, 30);
-        mapUI = new MapUI();
-        mapCntl = new MapController(rideList);
-        map = new Map("West section", listOfRides);
+        Date timeThatWillPass = new Date(2021, 9,11);
+        Date timeThatWillFail = new Date(2021, 9, 9);
+                
+        Ticket demo = new Ticket(1, 1, 5, timeThatWillFail);
+        Ticket demoPass = new Ticket(1,1,5, timeThatWillPass);
+
         
-        System.out.println("Testing the test harness");
+        ParkViewer pv = new ParkViewer(listOfParks);
+
         
-        boolean boolCapacity = false;
-        
-        if(rideList.checkCapacity()){
-            boolCapacity = true;
+        //Park         
+        if(p1.checkExpired(demo) == false && p1.checkExpired(demoPass) == true){
+            checkExpiredTest1 = true;
         }
         
-        System.out.println("rideList.checkCapacity()" + rideList.checkCapacity());
+        //Other random stubs         
+        System.out.println("Parkname: " + p1.getParkName());
+        System.out.println("ParkId : "+ p1.getParkId() );
+        System.out.println("ParkAddress: " + p1.getParkAddress());
+        System.out.println("ParkInfo: " + p1.getParkInfo());
+        System.out.println("openingTime: " + p1.getOpeningTime());
+        System.out.println("closingTime: " + p1.getClosingTime());
+
+        //ParkViewer 
+        //test stubs for ParkViewer 
+        pv.spawnParkView();
+        pv.setController();
+        pv.createParklistView();
+        pv.createParkMapView();
+        pv.showParks();
+        pv.showParkMap();
+        
+        
+        //Ticket 
+        //getUser() test 
+        if (Integer.compare(demo.getUser(), 1) == 0) {
+            System.out.println("getUser() test passed");
+            getUserTest1 = true; 
+        } else {
+            System.out.println("test failed");
+        }
+
+        //getTicketValidDuring() test
+        System.out.println("ticket valid during... "+ demo.getTicketValidDuring());
+        
+        //check if all tests were passed and return a val 
+        if(getUserTest1 && checkExpiredTest1  ){
+            testsPassed = true;
+        }
+        
+        return testsPassed;
+
+
     }
+
 }
