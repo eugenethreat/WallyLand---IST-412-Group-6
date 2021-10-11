@@ -1,34 +1,33 @@
+
+package WLVG_app.testing;
+
+import WLVG_app.ViewWaitTimes.Map;
+import WLVG_app.ViewWaitTimes.MapController;
+import WLVG_app.ViewWaitTimes.MapUI;
+import WLVG_app.ViewWaitTimes.RideList;
+import java.sql.Time;
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WLVG_app.testing;
 
-import WLVG_app.Ticketing.Park;
-import WLVG_app.Ticketing.ParkViewer;
-import WLVG_app.Ticketing.Ticket;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.Date;
-
-/**
- * testharness Tests API calls and such for M02-A03
- *
- * @author eugene
- */
-public class testharness {
-
-    public static void main(String[] args) {
-        System.out.println("testing the test harness");
-        System.out.println("-------------------------------------------");
-
-        boolean eugTests = eugeneTests();
-        System.out.println("eugTests: " + eugTests);
+ //@author tomia
+ 
+public class testharness
+{
+    static private RideList rideList;
+    static private MapUI mapUI;
+    static private MapController mapCntl;
+    static private Map map;
+    static private ArrayList<RideList> listOfRides;
     
+    
+    public static void main(String[] args)
+    {
+        Time t = null;
     private static HotelCntl hotelController;
     private static Vacancy vacancy;
     private static VacancyList vacancyList;
@@ -89,59 +88,19 @@ public class testharness {
         listOfParks.add(p1);
         listOfParks.add(p2);
         
-        Date timeThatWillPass = new Date(2021, 9,11);
-        Date timeThatWillFail = new Date(2021, 9, 9);
-                
-        Ticket demo = new Ticket(1, 1, 5, timeThatWillFail);
-        Ticket demoPass = new Ticket(1,1,5, timeThatWillPass);
-
+        rideList = new RideList("Wally Coaster", "8 AM - 6 PM", t, 30);
+        mapUI = new MapUI();
+        mapCntl = new MapController(rideList);
+        map = new Map("West section", listOfRides);
         
-        ParkViewer pv = new ParkViewer(listOfParks);
-
+        System.out.println("Testing the test harness");
         
-        //Park         
-        if(p1.checkExpired(demo) == false && p1.checkExpired(demoPass) == true){
-            checkExpiredTest1 = true;
+        boolean boolCapacity = false;
+        
+        if(rideList.checkCapacity()){
+            boolCapacity = true;
         }
         
-        //Other random stubs         
-        System.out.println("Parkname: " + p1.getParkName());
-        System.out.println("ParkId : "+ p1.getParkId() );
-        System.out.println("ParkAddress: " + p1.getParkAddress());
-        System.out.println("ParkInfo: " + p1.getParkInfo());
-        System.out.println("openingTime: " + p1.getOpeningTime());
-        System.out.println("closingTime: " + p1.getClosingTime());
-
-      
-        //ParkViewer 
-        //test stubs for ParkViewer 
-        pv.spawnParkView();
-        pv.setController();
-        pv.createParklistView();
-        pv.createParkMapView();
-        pv.showParks();
-        pv.showParkMap();
-        
-        
-        //Ticket 
-        //getUser() test 
-        if (Integer.compare(demo.getUser(), 1) == 0) {
-            System.out.println("getUser() test passed");
-            getUserTest1 = true; 
-        } else {
-            System.out.println("test failed");
-        }
-
-        //getTicketValidDuring() test
-        System.out.println("ticket valid during... "+ demo.getTicketValidDuring());
-        
-        //check if all tests were passed and return a val 
-        if(getUserTest1 && checkExpiredTest1  ){
-            testsPassed = true;
-        }
-        
-        return testsPassed;
-
+        System.out.println("rideList.checkCapacity()" + rideList.checkCapacity());
     }
-
 }
