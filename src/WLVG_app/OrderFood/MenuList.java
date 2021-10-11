@@ -26,6 +26,7 @@ public class MenuList {
     * Adds menus to list
     */
     private void initializeMenus() {
+        this.menus.add(new Menu());
         
     }
     
