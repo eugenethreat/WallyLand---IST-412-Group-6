@@ -6,6 +6,8 @@
 package WLVG_app;
 
 import WLVG_app.Views.Baseframe;
+import WLVG_app.Views.PasswordStrengthPanel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,7 +15,25 @@ import WLVG_app.Views.Baseframe;
  */
 public class Controller {
 
+    Baseframe bp;
+    Model m;
+
     public Controller(Baseframe bp, Model m) {
+        this.bp = bp;
+        this.m = m;
+        
+        //FOR M03 AO3 - SWITCH TO PASSWORD IMMEDIATELY 
+        this.switchToPasswordStrengthPanel();
+    }
+
+    public void switchToPasswordStrengthPanel() {
+        PasswordStrengthPanel ps = new PasswordStrengthPanel();
+        this.switchViews(ps);
+
+    }
+
+    public void switchViews(JPanel newView) {
+        bp.switchViews(newView);
     }
 
 }

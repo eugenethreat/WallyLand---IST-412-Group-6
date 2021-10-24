@@ -7,6 +7,7 @@
 package WLVG_app;
 
 import WLVG_app.Views.Baseframe;
+import WLVG_app.Views.PasswordStrengthPanel;
 
 /**
  *
@@ -24,6 +25,8 @@ public class App {
         Model m = new Model();
         
         Controller c = new Controller(bp, m);
+        
+       
 
         
     }
