@@ -57,6 +57,8 @@ public class testharness {
         testFinalizedSale();
         testPaymentCntl();
         testPaymentList();
+        
+        System.out.println("testing...");
 
         // ************************************
         // *****   package OrderFood  ******
