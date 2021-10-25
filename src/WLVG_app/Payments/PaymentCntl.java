@@ -12,16 +12,14 @@ package WLVG_app.Payments;
  */
 public class PaymentCntl {
 
-    private PaymentList payments;
+    private PaymentList payments = new PaymentList();
+    private PaymentProcessor pp = new PaymentProcessor();
 
     /**
      * Creates UI and model
      */
     public PaymentCntl() {
 
-    }
-
-    public void newPayment() {
     }
 
     /**
@@ -44,6 +42,33 @@ public class PaymentCntl {
      * Removes payments from the list
      */
     public void removePayment() {
+
+    }
+
+    public void addPayment(String text, BillingInfo info) {
+        System.out.println("paymentcntl - " + text);
+
+        //STRING MATCHING BAD!!!
+        if (text.equals("Credit Card")) {
+            //new card
+//            System.out.println("credit card");
+            pp.newCreditCardPayment();
+
+            System.out.println("INFO IN PC - " + info);
+
+            //adds the successful payment to the list 
+            payments.getBillingInfo().add(info);
+
+        } else {
+            //saved information 
+//            System.out.println("saved info");
+            pp.newSavedInfoPayment();
+
+            System.out.println("INFO IN PC - " + info);
+
+            //adds the successful payment to the list 
+            payments.getBillingInfo().add(info);
+        }
 
     }
 

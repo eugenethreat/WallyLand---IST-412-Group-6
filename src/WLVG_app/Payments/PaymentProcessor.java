@@ -6,15 +6,17 @@
 package WLVG_app.Payments;
 
 /**
- * @info Facade that handles payments based on type. 
+ *
  * @author eugene
  */
-public class CreditCardPayment {
-    
-    public CreditCardPayment(){
-        
+public class PaymentProcessor {
+
+    //eventually, this will have code that reaches out to a payment processor to make payments. 
+    public void newCreditCardPayment() {
+
     }
-    
-    
-    
+
+    public void newSavedInfoPayment() {
+    }
+
 }

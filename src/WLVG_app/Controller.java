@@ -5,15 +5,19 @@
  */
 package WLVG_app;
 
+import WLVG_app.Payments.BillingInfo;
 import WLVG_app.Payments.PaymentCntl;
 import WLVG_app.Payments.PaymentUI;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -35,13 +39,69 @@ public class Controller {
 
         this.navButtonsListeners();
 
-        //FOR M03 AO3 - SWITCH TO PASSWORD IMMEDIATELY 
-//        this.switchToPasswordStrengthPanel();
-//        this.switchToPaymentView();
+        //FOR MO3-AO3 / BECAUSE SWING 
+        //payment ui 
+        this.listenerThing();
+        this.switchViews(pui);
+        //password strength
+//        this.switchViews(ps);
+
     }
 
     public void newPayment() {
 
+    }
+
+    //think about this better later
+    public void listenerThing() {
+        JButton submitPaymentButton = pui.getSubmitPaymentButton();
+        submitPaymentButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //submit a new payment based on the type
+
+                //get the payment type
+                ButtonGroup paymentTypePicker = pui.getBg();
+
+                Enumeration<AbstractButton> buttonList = paymentTypePicker.getElements();
+
+                while (buttonList.hasMoreElements()) {
+                    JRadioButton button = (JRadioButton) buttonList.nextElement();
+
+                    if (button.isSelected()) {
+                        System.out.println(button.getText());
+                        //bad string matching - replace later 
+
+                        //GET THE VALUES FROM THE FIELDS 
+                        String fName = pui.getNameField().getText();
+                        String lName = pui.getlastNameField().getText();
+//                        double ccNum = Double.parseDouble(pui.getCardNumField().getText());
+//                        int ccExpDate = Integer.parseInt(pui.getExpDateField().getText());
+//                        int ccCode = Integer.parseInt(pui.getSecurityCodeField().getText());
+//                        int zip = Integer.parseInt(pui.getZipCodeField().getText());
+
+                        //These should really be strings to prevent issues such as spacing getting in the way
+                        double ccNum = 1.1;
+                        int ccExpDate = 1;
+                        int ccCode = 123;
+                        int zip = 123456;
+
+                        BillingInfo info = new BillingInfo(fName, lName, ccNum, ccExpDate, ccCode, zip);
+
+                        pc.addPayment(button.getText(), info);
+
+                    } else {
+                    }
+
+                }
+
+                System.out.println("STORED PAYMENTS ATM");
+                for (BillingInfo bi : pc.getPayments().getBillingInfo()) {
+                    System.out.println(bi);
+                }
+
+            }
+        });
     }
 
     public void switchViews(JPanel newView) {
@@ -72,21 +132,7 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
 
                 PaymentUI pui = new PaymentUI();
-
                 bp.switchViews(pui);
-
-                JButton submitPaymentButton = pui.getSubmitPaymentButton();
-                submitPaymentButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //submit a new payment based on the type
-
-                        //get the payment type
-                        ButtonGroup paymentTypePicker = pui.getBg();
-                        boolean whichButton = paymentTypePicker.getSelection().isSelected();
-
-                    }
-                });
 
             }
         });

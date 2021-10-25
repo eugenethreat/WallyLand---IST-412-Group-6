@@ -20,7 +20,6 @@ public class BillingInfo {
      * @param securityCode; three digit code on the back of the credit card
      * @param billingZipCode; the billing zip code of where the purchaser lives
      */
-
     private String firstName;
     private String lastName;
     private double cardNumber;
@@ -31,6 +30,7 @@ public class BillingInfo {
     /**
      *
      * Constructor for all billing info
+     *
      * @param firstName
      * @param lastName
      * @param cardNumber
@@ -41,7 +41,7 @@ public class BillingInfo {
     public BillingInfo(String firstName, String lastName, double cardNumber, int expirationDate, int securityCode, int billingZipCode) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.cardNumber = cardNumber; 
+        this.cardNumber = cardNumber;
         this.expirationDate = expirationDate;
         this.securityCode = securityCode;
         this.billingZipCode = billingZipCode;
@@ -59,6 +59,7 @@ public class BillingInfo {
     /**
      *
      * Setter for the customer's first name
+     *
      * @param firstName
      */
     public void setFirstName(String firstName) {
@@ -76,6 +77,7 @@ public class BillingInfo {
 
     /**
      * Setter for the customers last name
+     *
      * @param lastName
      */
     public void setLastName(String lastName) {
@@ -93,6 +95,7 @@ public class BillingInfo {
 
     /**
      * Setter for the customer's credit card number
+     *
      * @param cardNumber
      */
     public void setCardNumber(double cardNumber) {
@@ -110,6 +113,7 @@ public class BillingInfo {
 
     /**
      * Setter for the expiration date
+     *
      * @param expirationDate
      */
     public void setExpirationDate(int expirationDate) {
@@ -127,6 +131,7 @@ public class BillingInfo {
 
     /**
      * Setter for the credit card security code
+     *
      * @param securityCode
      */
     public void setSecurityCode(int securityCode) {
@@ -144,15 +149,16 @@ public class BillingInfo {
 
     /**
      * Setter for the customer's zip code
+     *
      * @param billingZipCode
      */
     public void setBillingZipCode(int billingZipCode) {
         this.billingZipCode = billingZipCode;
     }
-    
+
     @Override
-    public String toString(){
-        return this.firstName + " " +  this.lastName + " " + this.billingZipCode + " " + this.cardNumber + " " + this.expirationDate + " " + this.securityCode;
+    public String toString() {
+        return this.firstName + " " + this.lastName + " " + this.billingZipCode + " " + this.cardNumber + " " + this.expirationDate + " " + this.securityCode;
     }
 
 }
