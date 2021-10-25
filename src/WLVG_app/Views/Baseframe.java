@@ -31,8 +31,12 @@ public class Baseframe extends JFrame {
         'raw umber' (brown) = #7C6354
         silver chalice = #A5ABAF
      */
-    JPanel pn;
+    private JPanel pn;
 //    BASE PANEL 
+    private JPanel navbar;
+    private JButton navButtonLeft;
+    private JButton navButtonCenter;
+    private JButton navButtonRight;
 
     public Baseframe() {
         //Bootstrapping 
@@ -73,20 +77,20 @@ public class Baseframe extends JFrame {
      * @return JPanel containing the navbar.
      */
     public JPanel initNavbar() {
-        JPanel navbar = new JPanel();
+        navbar = new JPanel();
         navbar.setBackground(Color.decode("#E3E9C2"));
 
         //adjust the second number to tweak #columns
         GridLayout gr = new GridLayout(1, 3);
         navbar.setLayout(gr);
 
-        JButton button1 = new JButton("left");
-        JButton button2 = new JButton("center");
-        JButton button3 = new JButton("right");
+        navButtonLeft = new JButton("left");
+        navButtonCenter = new JButton("center");
+        navButtonRight = new JButton("right");
 
-        navbar.add(button1);
-        navbar.add(button2);
-        navbar.add(button3);
+        navbar.add(navButtonLeft);
+        navbar.add(navButtonCenter);
+        navbar.add(navButtonRight);
 
         //this.add(navbar);
         return navbar;
@@ -98,13 +102,34 @@ public class Baseframe extends JFrame {
      * @param toSwitch - the JPanel (view) to switch to.
      */
     public void switchViews(JPanel toSwitch) {
-//https://stackoverflow.com/a/44038268
+        //https://stackoverflow.com/a/44038268
         pn.removeAll();
         pn.repaint();
         pn.revalidate();
 
         this.add(toSwitch, BorderLayout.CENTER);
-//        pack();
+
+    }
+
+    /**
+     * @return the navButtonLeft
+     */
+    public JButton getNavButtonLeft() {
+        return navButtonLeft;
+    }
+
+    /**
+     * @return the navButtonCenter
+     */
+    public JButton getNavButtonCenter() {
+        return navButtonCenter;
+    }
+
+    /**
+     * @return the navButtonRight
+     */
+    public JButton getNavButtonRight() {
+        return navButtonRight;
     }
 
 }
