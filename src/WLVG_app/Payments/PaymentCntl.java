@@ -54,8 +54,6 @@ public class PaymentCntl {
 //            System.out.println("credit card");
             pp.newCreditCardPayment();
 
-            System.out.println("INFO IN PC - " + info);
-
             //adds the successful payment to the list 
             payments.getBillingInfo().add(info);
 
@@ -63,8 +61,6 @@ public class PaymentCntl {
             //saved information 
 //            System.out.println("saved info");
             pp.newSavedInfoPayment();
-
-            System.out.println("INFO IN PC - " + info);
 
             //adds the successful payment to the list 
             payments.getBillingInfo().add(info);

@@ -43,6 +43,7 @@ public class Controller {
         //payment ui 
         this.listenerThing();
         this.switchViews(pui);
+        
         //password strength
 //        this.switchViews(ps);
 
