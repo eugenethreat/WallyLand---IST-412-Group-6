@@ -7,6 +7,7 @@ package WLVG_app.Views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -42,7 +43,7 @@ public class Baseframe extends JFrame {
         //Bootstrapping 
         this.setTitle("WLVG Vacation Planner - Group 6");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(550, 900);
+        this.setSize(new Dimension(550, 900));
 
         //Init base panel
         initBasePanel();
@@ -108,7 +109,7 @@ public class Baseframe extends JFrame {
         pn.revalidate();
 
         this.add(toSwitch, BorderLayout.CENTER);
-
+        
     }
 
     /**

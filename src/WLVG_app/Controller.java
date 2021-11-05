@@ -8,6 +8,7 @@ package WLVG_app;
 import WLVG_app.Payments.BillingInfo;
 import WLVG_app.Payments.PaymentCntl;
 import WLVG_app.Payments.PaymentUI;
+import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import java.awt.event.ActionEvent;
@@ -33,6 +34,8 @@ public class Controller {
 
     PaymentCntl pc = new PaymentCntl();
 
+    MapUI mp = new MapUI();
+
     public Controller(Baseframe bp, Model m) {
         this.bp = bp;
         this.m = m;
@@ -42,11 +45,14 @@ public class Controller {
         //FOR MO3-AO3 / BECAUSE SWING 
         //payment ui 
         this.listenerThing();
-        this.switchViews(pui);
-        
+//        this.switchViews(pui);
+
+        //M03-A05 - first implemented use case -- mapUI
+        //"viewing wait times" 
+        this.switchViews(mp);
+
         //password strength
 //        this.switchViews(ps);
-
     }
 
     public void newPayment() {
@@ -126,6 +132,9 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 //bp.switchViews(newView);
                 //TODO - home button 
+                mp = new MapUI();
+                bp.switchViews(mp);
+
             }
         });
         bp.getNavButtonRight().addActionListener(new ActionListener() {
