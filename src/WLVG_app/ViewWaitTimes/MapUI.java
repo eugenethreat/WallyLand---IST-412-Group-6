@@ -39,6 +39,9 @@ import javax.swing.JTable;
  */
 public class MapUI extends JPanel {
 
+    //path for image 
+    String path = "C:\\Users\\eugene\\OneDrive - The Pennsylvania State University\\FALL21\\IST 412\\IST412_group6\\Images\\toesy w my toes.jpg";
+
     //@param the list of wait times
     EventList<WaitTime> testList = new BasicEventList<>();
 
@@ -57,12 +60,8 @@ public class MapUI extends JPanel {
      */
     private void initComponents() {
         //layout (rows, cols) 
-        GridLayout grid = new GridLayout(3, 1);
+        GridLayout grid = new GridLayout(2, 1);
         this.setLayout(grid);
-
-        //various labels and things 
-        JLabel header = new JLabel("WLVG Wait Time Viewer");
-        this.add(header);
 
         //init map
         JLabel mapPic = initMap();
@@ -74,22 +73,12 @@ public class MapUI extends JPanel {
     }
 
     //inits the wait time list 
-    private JPanel initWaitList() {
+    public JPanel initWaitList() {
         JPanel listContainer = new JPanel();
         testList = new BasicEventList<>();
 
         //sample values for thingy
-        WaitTime first = new WaitTime("eugene", 000);
-        WaitTime second = new WaitTime("Paint Me Silver - Pond", 000);
-        WaitTime third = new WaitTime("bmbmbm - Black Midi", 000);
-        WaitTime fourth = new WaitTime("We've Only Just Begun - Carpenters", 000);
-        WaitTime fifth = new WaitTime("Oxygen - Beach Bunny", 000);
-
-        testList.add(first);
-        testList.add(second);
-        testList.add(third);
-        testList.add(fourth);
-        testList.add(fifth);
+        addSampleValues();
 
         AdvancedTableModel<WaitTime> listModel = eventTableModelWithThreadProxyList(testList, new WaitlistTableFormat());
         JTable issuesJTable = new JTable(listModel);
@@ -101,18 +90,7 @@ public class MapUI extends JPanel {
         testValUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                testList.clear();
-                WaitTime first = new WaitTime("Vape Nation 2.0 - Mom Jeans", 000);
-                WaitTime second = new WaitTime("Little Death - The Beths", 000);
-                WaitTime third = new WaitTime("#3 - Aphex Twin", 000);
-                WaitTime fourth = new WaitTime("Slow - Black Midi", 000);
-                WaitTime fifth = new WaitTime("Horses in My Dreams - PJ Harvey", 000);
-
-                testList.add(first);
-                testList.add(second);
-                testList.add(third);
-                testList.add(fourth);
-                testList.add(fifth);
+                setWaitTimes();
 
             }
         });
@@ -122,13 +100,12 @@ public class MapUI extends JPanel {
 
     }
 
-    private JLabel initMap() {
+    public JLabel initMap() {
         JLabel picLabel = null;
 
         try {
             //FOR NOW - SAMPLE IMAGE
             //abs
-            String path = "C:\\Users\\eugene\\OneDrive - The Pennsylvania State University\\FALL21\\IST 412\\IST412_group6\\Images\\toesy w my toes.jpg";
             //relative - fix later
 //            String path = "IST 412\\IST412_group6\\Images\\toesy w my toes.jpg";
 
@@ -150,9 +127,34 @@ public class MapUI extends JPanel {
 
         //to remove all values from the list 
         testList.clear();
+        WaitTime first = new WaitTime("Vape Nation 2.0 - Mom Jeans", 000);
+        WaitTime second = new WaitTime("Little Death - The Beths", 000);
+        WaitTime third = new WaitTime("#3 - Aphex Twin", 000);
+        WaitTime fourth = new WaitTime("Slow - Black Midi", 000);
+        WaitTime fifth = new WaitTime("Horses in My Dreams - PJ Harvey", 000);
+
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        testList.add(fourth);
+        testList.add(fifth);
 
         //to add a new value, just add another value to the list
         //ex. testList.add(some WaitTime object)
+    }
+
+    private void addSampleValues() {
+        WaitTime first = new WaitTime("eugene", 69240);
+        WaitTime second = new WaitTime("Paint Me Silver - Pond", 000);
+        WaitTime third = new WaitTime("bmbmbm - Black Midi", 000);
+        WaitTime fourth = new WaitTime("We've Only Just Begun - Carpenters", 000);
+        WaitTime fifth = new WaitTime("Oxygen - Beach Bunny", 000);
+
+        testList.add(first);
+        testList.add(second);
+        testList.add(third);
+        testList.add(fourth);
+        testList.add(fifth);
     }
 
 }

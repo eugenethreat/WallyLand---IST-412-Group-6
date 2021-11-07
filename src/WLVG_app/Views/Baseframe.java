@@ -43,7 +43,11 @@ public class Baseframe extends JFrame {
         //Bootstrapping 
         this.setTitle("WLVG Vacation Planner - Group 6");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(new Dimension(550, 900));
+        
+        //setpreferredsize is the way
+        this.setPreferredSize(new Dimension(550, 900)); 
+//        this.setVisible(true);
+//        this.pack();
 
         //Init base panel
         initBasePanel();

@@ -11,6 +11,7 @@ import WLVG_app.Payments.PaymentUI;
 import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
+import WLVG_app.Views.TestPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
@@ -37,6 +38,7 @@ public class Controller {
     MapUI mp = new MapUI();
 
     public Controller(Baseframe bp, Model m) {
+//        this.bp = bp;
         this.bp = bp;
         this.m = m;
 
@@ -49,7 +51,11 @@ public class Controller {
 
         //M03-A05 - first implemented use case -- mapUI
         //"viewing wait times" 
-        this.switchViews(mp);
+//        this.switchViews(mp);
+        
+
+        TestPanel tp = new TestPanel();
+        this.switchViews(tp);
 
         //password strength
 //        this.switchViews(ps);
