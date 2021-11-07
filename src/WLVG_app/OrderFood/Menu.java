@@ -243,7 +243,7 @@ public class Menu implements FoodInfo {
     /**
     * Prints boilerplate text for Menu
     */
-    @Override
+//    @Override
    public void boilerplate() {
       System.out.println("Great choice! This looks delicious. When finished adding food items, proceed to checkout with your payment details.");
    }

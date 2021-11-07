@@ -3,22 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package orderfood;
+package WLVG_app.orderfood;
 
 /**
  *
  * @author ellen
  */
 public abstract class FoodDecorator implements FoodInfo {
+
     protected FoodInfo decoratedFoodInfo;
-    
-    public FoodDecorator(FoodInfo decoratedFoodInfo){
-        this.decoratedFoodInfo=decoratedFoodInfo;
+
+    public FoodDecorator(FoodInfo decoratedFoodInfo) {
+        this.decoratedFoodInfo = decoratedFoodInfo;
     }
-    
+
     @Override
-   public void boilerplate() {
-      decoratedFoodInfo.boilerplate();
-   }
-    
+    public void boilerplate() {
+        decoratedFoodInfo.boilerplate();
+    }
+
 }
