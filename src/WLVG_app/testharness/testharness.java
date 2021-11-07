@@ -7,7 +7,7 @@ import WLVG_app.OrderFood.FoodCntl;
 import WLVG_app.OrderFood.Menu;
 import WLVG_app.OrderFood.MenuList;
 import WLVG_app.Payments.BillingInfo;
-import WLVG_app.Payments.FinalizedSale;
+import WLVG_app.Payments.old_payments.FinalizedSale;
 import WLVG_app.Payments.PaymentCntl;
 import WLVG_app.Ticketing.Park;
 import WLVG_app.Ticketing.ParkViewer;
@@ -57,6 +57,8 @@ public class testharness {
         testFinalizedSale();
         testPaymentCntl();
         testPaymentList();
+        
+        System.out.println("testing...");
 
         // ************************************
         // *****   package OrderFood  ******

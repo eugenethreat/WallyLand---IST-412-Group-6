@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class PaymentList 
 {
     
-    private ArrayList<BillingInfo> payments;
+    private ArrayList<BillingInfo> payments = new ArrayList();
     
     
     /**
@@ -37,7 +37,7 @@ public class PaymentList
     /**
      * @return List of Payments
      */
-    private ArrayList<BillingInfo> getBillingInfo() 
+    public ArrayList<BillingInfo> getBillingInfo() 
     {
         return payments;
     }
