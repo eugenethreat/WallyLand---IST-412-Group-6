@@ -5,6 +5,8 @@
  */
 package WLVG_app;
 
+import WLVG_app.Login.LoginPanel;
+import WLVG_app.Login.NavigationPanel;
 import WLVG_app.Payments.BillingInfo;
 import WLVG_app.Payments.PaymentCntl;
 import WLVG_app.Payments.PaymentUI;
@@ -36,6 +38,12 @@ public class Controller {
     PaymentCntl pc = new PaymentCntl();
 
     MapUI mp = new MapUI();
+    
+    LoginPanel lp = new LoginPanel(this);
+    
+    NavigationPanel np = new NavigationPanel(this);
+    
+    TestPanel tp = new TestPanel();
 
     public Controller(Baseframe bp, Model m) {
 //        this.bp = bp;
@@ -54,8 +62,8 @@ public class Controller {
 //        this.switchViews(mp);
         
 
-        TestPanel tp = new TestPanel();
-        this.switchViews(tp);
+        //TestPanel tp = new TestPanel();
+        this.switchViews(lp);
 
         //password strength
 //        this.switchViews(ps);
@@ -120,6 +128,15 @@ public class Controller {
     public void switchViews(JPanel newView) {
         bp.switchViews(newView);
     }
+    
+    public void login() {
+        bp.switchViews(np);
+    }
+    
+    public void switchToWaitTimes() {
+        bp.switchViews(tp);
+    }
+    
 
     //TODO: why does this just not work sometimes? 
     //loading components? 
@@ -154,5 +171,7 @@ public class Controller {
         });
 
     }
+
+
 
 }

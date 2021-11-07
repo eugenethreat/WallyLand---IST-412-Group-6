@@ -64,8 +64,8 @@ public class MapUI extends JPanel {
         this.setLayout(grid);
 
         //init map
-        JLabel mapPic = initMap();
-        this.add(mapPic);
+        //JLabel mapPic = initMap();
+        //this.add(mapPic);
 
         //wait time list 
         JPanel listPanel = initWaitList();
@@ -99,10 +99,11 @@ public class MapUI extends JPanel {
         return listContainer;
 
     }
-
+/*
     public JLabel initMap() {
         JLabel picLabel = null;
-
+        
+        
         try {
             //FOR NOW - SAMPLE IMAGE
             //abs
@@ -119,9 +120,9 @@ public class MapUI extends JPanel {
         }
 
         return picLabel;
-
+        
     }
-
+*/
     private void setWaitTimes() {
         //gets the wait times from Tomi's code and edits the view based on that 
 
