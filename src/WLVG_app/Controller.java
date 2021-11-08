@@ -36,9 +36,10 @@ public class Controller {
     PaymentUI pui = new PaymentUI();
     PasswordStrengthPanel ps = new PasswordStrengthPanel();
     PaymentCntl pc = new PaymentCntl();
-    MapUI mp = new MapUI();
     LoginPanel lp = new LoginPanel(this);
     NavigationPanel np = new NavigationPanel(this);
+    //testpanel - the container panel with mapUI
+    MapUI mp = new MapUI();
     TestPanel tp = new TestPanel();
 
     public Controller(Baseframe bp, Model m) {
@@ -51,21 +52,22 @@ public class Controller {
         //FOR MO3-AO3 / BECAUSE SWING 
         //payment ui 
         this.listenerThing();
-//        this.switchViews(pui);
 
-        //M03-A05 - first implemented use case -- mapUI
-        //"viewing wait times" 
-//        this.switchViews(mp);
-        //TestPanel tp = new TestPanel();
-//        this.switchViews(lp);
-        //password strength
-//        this.switchViews(ps);
-        //adding views to cardview
-        this.bp.getCardPanel().add(pui, "1");
-        this.bp.getCardPanel().add(ps, "2");
-        this.bp.getCardPanel().add(mp, "3");
-        this.bp.getCardPanel().add(lp, "4");
+        //ADDING THE VIEWS TO CARDVIEW
+        //payment UI 
+        this.bp.getCardPanel().add(pui, "payment");
+        //password strength checker
+        this.bp.getCardPanel().add(ps, "pwstrength");
+        //mapUI
+        this.bp.getCardPanel().add(tp, "wait_times");
+        //login
+        this.bp.getCardPanel().add(lp, "login");
+        //navigation/home
+        this.bp.getCardPanel().add(np, "navigation");
 
+        //SHOWS LOGIN WHEN FIRST LOADING
+        JPanel cards = bp.getCardPanel();
+        bp.getCardLayout().show(cards, "login");
     }
 
     public void newPayment() {
@@ -129,25 +131,20 @@ public class Controller {
     }
 
     public void login() {
-        bp.switchViews(np);
+        //bp.switchViews(np);
+        JPanel cards = bp.getCardPanel();
+        bp.getCardLayout().show(cards, "navigation");
+
     }
 
     public void switchToWaitTimes() {
-        bp.switchViews(tp);
-    }
-
-    //adds a panel to the card view
-    public void addToCardView(JPanel jp) {
+        //bp.switchViews(tp);
         JPanel cards = bp.getCardPanel();
-
-        JPanel test = new JPanel();
-        JPanel fuckyou = new JPanel();
-
-        cards.add(test);
-        cards.add(fuckyou);
+        bp.getCardLayout().show(cards, "wait_times");
 
     }
 
+    //These navbar buttons are for switching views
     //TODO: why does this just not work sometimes? 
     //loading components? 
     public void navButtonsListeners() {
@@ -155,32 +152,19 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ps = new PasswordStrengthPanel();
-//
-////                bp.switchViews(ps);
-//                System.out.println("we here");
-//                JPanel cards = bp.getCardPanel();
-//
-////                CardLayout cr = (CardLayout) cards.getLayout();
-//                CardLayout cr = bp.getCardLayout();
-////                cr.show(cards, "TEST");
-//                cr.next(cards);
 
-                System.out.println("very cool of this to work a single time");
-
+                //the big money
                 JPanel cards = bp.getCardPanel();
-                bp.getCardLayout().show(cards, "4");
+                bp.getCardLayout().previous(cards);
 
             }
         });
         bp.getNavButtonCenter().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //bp.switchViews(newView);
-//                //TODO - home button 
-//                mp = new MapUI();
-//                bp.switchViews(mp);
+
                 JPanel cards = bp.getCardPanel();
-                bp.getCardLayout().show(cards, "2");
+                bp.getCardLayout().show(cards, "navigation");
 
             }
         });
@@ -188,11 +172,8 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
 //
-//                PaymentUI pui = new PaymentUI();
-//                bp.switchViews(pui);
-
                 JPanel cards = bp.getCardPanel();
-                bp.getCardLayout().show(cards, "3");
+                bp.getCardLayout().next(cards);
 
             }
         });

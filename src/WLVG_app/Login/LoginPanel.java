@@ -109,6 +109,7 @@ public class LoginPanel extends javax.swing.JPanel {
         }
         else {
             this.removeAll();
+            //successful login
             cntl.login();
         }
 

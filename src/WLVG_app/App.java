@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package WLVG_app;
 
 import WLVG_app.Views.Baseframe;
@@ -20,17 +19,12 @@ public class App {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        
+
         Baseframe bp = new Baseframe();
         Model m = new Model();
-        
+
         Controller c = new Controller(bp, m);
 
-        
-       
-
-        
     }
 
 }

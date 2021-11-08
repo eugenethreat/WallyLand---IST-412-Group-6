@@ -93,9 +93,9 @@ public class Baseframe extends JFrame {
         GridLayout gr = new GridLayout(1, 3);
         navbar.setLayout(gr);
 
-        navButtonLeft = new JButton("left");
-        navButtonCenter = new JButton("center");
-        navButtonRight = new JButton("right");
+        navButtonLeft = new JButton("Previous card");
+        navButtonCenter = new JButton("Home");
+        navButtonRight = new JButton("Next card");
 
         navbar.add(navButtonLeft);
         navbar.add(navButtonCenter);
