@@ -41,7 +41,8 @@ import javax.swing.JTable;
 public class MapUI extends JPanel {
 
     //path for image 
-    String path = "C:\\Users\\eugene\\OneDrive - The Pennsylvania State University\\FALL21\\IST 412\\IST412_group6\\Images\\park1.jpg";
+    //relative path
+    String path = "src/img/park1.jpg";
 
     //@param the list of wait times
     EventList<WaitTime> testList = new BasicEventList<>();
