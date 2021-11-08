@@ -50,7 +50,7 @@ public class MapUI extends JPanel {
      */
     public MapUI() {
         this.setBackground(Color.decode("#F9FBB2"));
-        this.setSize(new Dimension(550, 900));
+        this.setPreferredSize(new Dimension(550, 900));
         initComponents();
 
     }
@@ -64,8 +64,8 @@ public class MapUI extends JPanel {
         this.setLayout(grid);
 
         //init map
-        //JLabel mapPic = initMap();
-        //this.add(mapPic);
+        JLabel mapPic = initMap();
+        this.add(mapPic);
 
         //wait time list 
         JPanel listPanel = initWaitList();
@@ -99,7 +99,7 @@ public class MapUI extends JPanel {
         return listContainer;
 
     }
-/*
+
     public JLabel initMap() {
         JLabel picLabel = null;
         
@@ -122,7 +122,7 @@ public class MapUI extends JPanel {
         return picLabel;
         
     }
-*/
+
     private void setWaitTimes() {
         //gets the wait times from Tomi's code and edits the view based on that 
 

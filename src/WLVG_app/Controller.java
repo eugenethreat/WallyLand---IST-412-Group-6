@@ -14,6 +14,7 @@ import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import WLVG_app.Views.TestPanel;
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
@@ -34,15 +35,10 @@ public class Controller {
 
     PaymentUI pui = new PaymentUI();
     PasswordStrengthPanel ps = new PasswordStrengthPanel();
-
     PaymentCntl pc = new PaymentCntl();
-
     MapUI mp = new MapUI();
-    
     LoginPanel lp = new LoginPanel(this);
-    
     NavigationPanel np = new NavigationPanel(this);
-    
     TestPanel tp = new TestPanel();
 
     public Controller(Baseframe bp, Model m) {
@@ -60,13 +56,16 @@ public class Controller {
         //M03-A05 - first implemented use case -- mapUI
         //"viewing wait times" 
 //        this.switchViews(mp);
-        
-
         //TestPanel tp = new TestPanel();
-        this.switchViews(lp);
-
+//        this.switchViews(lp);
         //password strength
 //        this.switchViews(ps);
+        //adding views to cardview
+        this.bp.getCardPanel().add(pui, "1");
+        this.bp.getCardPanel().add(ps, "2");
+        this.bp.getCardPanel().add(mp, "3");
+        this.bp.getCardPanel().add(lp, "4");
+
     }
 
     public void newPayment() {
@@ -128,15 +127,26 @@ public class Controller {
     public void switchViews(JPanel newView) {
         bp.switchViews(newView);
     }
-    
+
     public void login() {
         bp.switchViews(np);
     }
-    
+
     public void switchToWaitTimes() {
         bp.switchViews(tp);
     }
-    
+
+    //adds a panel to the card view
+    public void addToCardView(JPanel jp) {
+        JPanel cards = bp.getCardPanel();
+
+        JPanel test = new JPanel();
+        JPanel fuckyou = new JPanel();
+
+        cards.add(test);
+        cards.add(fuckyou);
+
+    }
 
     //TODO: why does this just not work sometimes? 
     //loading components? 
@@ -145,8 +155,20 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ps = new PasswordStrengthPanel();
+//
+////                bp.switchViews(ps);
+//                System.out.println("we here");
+//                JPanel cards = bp.getCardPanel();
+//
+////                CardLayout cr = (CardLayout) cards.getLayout();
+//                CardLayout cr = bp.getCardLayout();
+////                cr.show(cards, "TEST");
+//                cr.next(cards);
 
-                bp.switchViews(ps);
+                System.out.println("very cool of this to work a single time");
+
+                JPanel cards = bp.getCardPanel();
+                bp.getCardLayout().show(cards, "4");
 
             }
         });
@@ -154,24 +176,27 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //bp.switchViews(newView);
-                //TODO - home button 
-                mp = new MapUI();
-                bp.switchViews(mp);
+//                //TODO - home button 
+//                mp = new MapUI();
+//                bp.switchViews(mp);
+                JPanel cards = bp.getCardPanel();
+                bp.getCardLayout().show(cards, "2");
 
             }
         });
         bp.getNavButtonRight().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+//
+//                PaymentUI pui = new PaymentUI();
+//                bp.switchViews(pui);
 
-                PaymentUI pui = new PaymentUI();
-                bp.switchViews(pui);
+                JPanel cards = bp.getCardPanel();
+                bp.getCardLayout().show(cards, "3");
 
             }
         });
 
     }
-
-
 
 }
