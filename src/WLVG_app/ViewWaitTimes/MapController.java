@@ -11,11 +11,11 @@ package WLVG_app.ViewWaitTimes;
  */
 public class MapController 
 {
-     private RideList rideList;
+     private RideDetails rideList;
    /**
     * Creates UI and model
     */
-    public MapController(RideList rideList)
+    public MapController(RideDetails rideList)
     {
         this.rideList = rideList;
     }
@@ -23,7 +23,7 @@ public class MapController
     /**
     *Retrieves list of rides from Map
     */
-    public RideList getRideList() {
+    public RideDetails getRideList() {
         return rideList;
     }
     

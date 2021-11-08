@@ -11,15 +11,14 @@ import java.sql.Time;
  *
  * @author tomia
  */
-public class RideList 
-{
+public class RideDetails {
+
     private String attraction;
     private Time waitTime;
     private int maxCapacity;
     private String rideHours;
-    
-    public RideList(String attraction, String rideHours, Time waitTime, int maxCapacity)
-    {
+
+    public RideDetails(String attraction, Time waitTime, String rideHours, int maxCapacity) {
         this.attraction = attraction;
         this.waitTime = waitTime;
         this.rideHours = rideHours;
@@ -53,13 +52,27 @@ public class RideList
     public void setWaitTime(Time waitTime) {
         this.waitTime = waitTime;
     }
-    
+
     /*
     checks to see if ride is at maxCapacity
-    */
-    public boolean checkCapacity()
-    {
+     */
+    public boolean checkCapacity() {
         boolean isFull = true;
         return isFull;
     }
+
+    /**
+     * @return the maxCapacity
+     */
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
+
+    /**
+     * @return the rideHours
+     */
+    public String getRideHours() {
+        return rideHours;
+    }
+
 }

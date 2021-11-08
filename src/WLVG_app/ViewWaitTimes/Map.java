@@ -14,10 +14,10 @@ import java.util.ArrayList;
 public class Map 
 {
     private String location;
-    private ArrayList<RideList> listOfRides;
+    private ArrayList<RideDetails> listOfRides;
     //private 
     
-    public Map(String location, ArrayList<RideList> listOfRides)
+    public Map(String location, ArrayList<RideDetails> listOfRides)
     {
         this.location = location;
         this.listOfRides = listOfRides;
@@ -40,14 +40,14 @@ public class Map
     /**
      * @return the listOfRides
      */
-    public ArrayList<RideList> getListOfRides() {
+    public ArrayList<RideDetails> getListOfRides() {
         return listOfRides;
     }
 
     /**
      * @param listOfRides the listOfRides to set
      */
-    public void setListOfRides(ArrayList<RideList> listOfRides) {
+    public void setListOfRides(ArrayList<RideDetails> listOfRides) {
         this.listOfRides = listOfRides;
     }
     

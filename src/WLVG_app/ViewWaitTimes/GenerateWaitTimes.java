@@ -15,7 +15,7 @@ import java.util.Random;
 public class GenerateWaitTimes 
 {
     private int waitTime;
-    private RideList rideList;
+    private RideDetails rideList;
     
     //constructor - kinda started
     public GenerateWaitTimes(int waitTime)
