@@ -165,8 +165,8 @@ public class Controller {
         bp.getNavButtonLeft().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ps = new PasswordStrengthPanel();
-
+//                ps = new PasswordStrengthPanel();
+                System.out.println("showing previous card");
                 //the big money
                 JPanel cards = bp.getCardPanel();
                 bp.getCardLayout().previous(cards);
@@ -176,7 +176,7 @@ public class Controller {
         bp.getNavButtonCenter().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                System.out.println("switching to nav");
                 JPanel cards = bp.getCardPanel();
                 bp.getCardLayout().show(cards, "navigation");
 
@@ -185,7 +185,7 @@ public class Controller {
         bp.getNavButtonRight().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//
+                System.out.println("showing new card");
                 JPanel cards = bp.getCardPanel();
                 bp.getCardLayout().next(cards);
 
