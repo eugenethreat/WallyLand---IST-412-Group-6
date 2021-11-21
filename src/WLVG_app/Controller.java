@@ -10,13 +10,17 @@ import WLVG_app.Login.NavigationPanel;
 import WLVG_app.Payments.BillingInfo;
 import WLVG_app.Payments.PaymentCntl;
 import WLVG_app.Payments.PaymentUI;
+import WLVG_app.ViewWaitTimes.GenerateWaitTimes;
 import WLVG_app.ViewWaitTimes.MapUI;
+import WLVG_app.ViewWaitTimes.RideDetails;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import WLVG_app.Views.TestPanel;
+import ca.odell.glazedlists.EventList;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -43,23 +47,33 @@ public class Controller {
     TestPanel tp = new TestPanel();
 
     public Controller(Baseframe bp, Model m) {
-//        this.bp = bp;
         this.bp = bp;
         this.m = m;
 
         this.navButtonsListeners();
 
-        //FOR MO3-AO3 / BECAUSE SWING 
-        //payment ui 
-        this.listenerThing();
-
         //ADDING THE VIEWS TO CARDVIEW
         //payment UI 
         this.bp.getCardPanel().add(pui, "payment");
+        this.listenerThing();
+
         //password strength checker
         this.bp.getCardPanel().add(ps, "pwstrength");
         //mapUI
-        this.bp.getCardPanel().add(tp, "wait_times");
+        //this.bp.getCardPanel().add(tp, "wait_times");       
+        this.bp.getCardPanel().add(mp, "wait_times");
+        //sample wait times 
+        addSampleValues();
+        //new value button listener
+        JButton testValUpdate = mp.getTestValUpdate();
+        testValUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setWaitTimes();
+
+            }
+        });
+
         //login
         this.bp.getCardPanel().add(lp, "login");
         //navigation/home
@@ -177,6 +191,42 @@ public class Controller {
 
             }
         });
+
+    }
+
+    //changing wait times 
+    private void setWaitTimes() {
+        EventList<RideDetails> rideList = mp.getRideList();
+        //gets the wait times from Tomi's code and edits the view based on that 
+
+        //to remove all values from the list 
+        rideList.clear();
+
+        //generating a new random...
+        GenerateWaitTimes generator = new GenerateWaitTimes();
+
+        RideDetails r1 = new RideDetails("WallyCoaster 5", generator.generateRandomTime(), "10:00am-8:00pm", 10);
+        rideList.add(r1);
+
+        //to add a new value, just add another value to the list
+        //ex. testList.add(some WaitTime object)
+    }
+
+    private void addSampleValues() {
+        EventList<RideDetails> rideList = mp.getRideList();
+
+        Time t = new Time(100);
+
+        GenerateWaitTimes generator = new GenerateWaitTimes();
+
+        RideDetails r1 = new RideDetails("WallyCoaster 1", generator.generateRandomTime(), "10:00am-8:00pm", 10);
+        rideList.add(r1);
+
+        RideDetails r2 = new RideDetails("WallyCups", generator.generateRandomTime(), "10:00am-8:00pm", 15);
+        rideList.add(r2);
+
+        RideDetails r3 = new RideDetails("WallyKids Coaster", generator.generateRandomTime(), "10:00am-8:00pm", 10);
+        rideList.add(r3);
 
     }
 
