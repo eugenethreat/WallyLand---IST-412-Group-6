@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author ellen
  */
-public class MenuList {
+public class MenuList implements FoodInfo {
     
      private ArrayList<Menu> menus = new ArrayList();
 
@@ -37,5 +37,13 @@ public class MenuList {
         
         return menus;
     }
+    
+    /**
+    * Prints boilerplate text for MenuList
+    */
+//    @Override
+   public void boilerplate() {
+      System.out.println("Each of the locations listed features a different delicious cuisine from around the world. Bon apetit!");
+   }
     
 }

@@ -5,11 +5,12 @@
  */
 package WLVG_app.OrderFood;
 
+
 /**
  *
  * @author ellen
  */
-public class Menu {
+public class Menu implements FoodInfo {
 
     private String location;
     private String hours;
@@ -239,5 +240,13 @@ public class Menu {
     public void setPrice5(Integer price5) {
         this.price5 = price5;
     }
+    
+    /**
+    * Prints boilerplate text for Menu
+    */
+//    @Override
+   public void boilerplate() {
+      System.out.println("Great choice! This looks delicious. When finished adding food items, proceed to checkout with your payment details.");
+   }
 
 }

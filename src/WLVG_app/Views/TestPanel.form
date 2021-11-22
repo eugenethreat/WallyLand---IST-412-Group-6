@@ -19,10 +19,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="mapUI2" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="192" max="-2" attributes="0"/>
+                  <Component id="mapUI1" min="-2" pref="595" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="159" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -32,8 +32,8 @@
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="71" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="mapUI2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <Component id="mapUI1" min="-2" pref="914" max="-2" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -44,7 +44,7 @@
         <Property name="text" type="java.lang.String" value="Wallyland App - Group 6"/>
       </Properties>
     </Component>
-    <Component class="WLVG_app.ViewWaitTimes.MapUI" name="mapUI2">
+    <Component class="WLVG_app.ViewWaitTimes.MapUI" name="mapUI1">
     </Component>
   </SubComponents>
 </Form>

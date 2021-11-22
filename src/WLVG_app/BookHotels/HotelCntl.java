@@ -4,7 +4,6 @@
  */
 package WLVG_app.BookHotels;
 
-import WLVG_app.BookHotels.VacancyList;
 
 /**
  * Controller for the "Hotel Booking" use case

@@ -1,6 +1,4 @@
-** WLVG Group 6 ** 
-
-Semester Project for IST 412 
+WLVG IST 412 GROUP 6 
 
 Use Case 1 - Viewing Ride Wait Times 
 

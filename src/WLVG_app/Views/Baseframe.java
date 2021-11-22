@@ -6,6 +6,7 @@
 package WLVG_app.Views;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -32,8 +33,11 @@ public class Baseframe extends JFrame {
         'raw umber' (brown) = #7C6354
         silver chalice = #A5ABAF
      */
-    private JPanel pn;
-//    BASE PANEL 
+    
+    //cardpanel - main content panel
+    private JPanel cardPanel;
+    private CardLayout cards;
+
     private JPanel navbar;
     private JButton navButtonLeft;
     private JButton navButtonCenter;
@@ -43,11 +47,10 @@ public class Baseframe extends JFrame {
         //Bootstrapping 
         this.setTitle("WLVG Vacation Planner - Group 6");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
         //setpreferredsize is the way
-        this.setPreferredSize(new Dimension(550, 900)); 
-//        this.setVisible(true);
-//        this.pack();
+        this.setPreferredSize(new Dimension(550, 900));
+        this.setSize(new Dimension(550, 900));
+
 
         //Init base panel
         initBasePanel();
@@ -60,19 +63,22 @@ public class Baseframe extends JFrame {
      */
     public void initBasePanel() {
         //Bootstrapping 
-        pn = new JPanel();
-        pn.setBackground(Color.decode("#A5ABAF"));
+        //CardLayout to get rid of jank 
+        cards = new CardLayout();
+        cardPanel = new JPanel(cards);
+
+        cardPanel.setBackground(Color.decode("#A5ABAF"));
 
         //borderlayout -- for navbar @ bottom
         BorderLayout br = new BorderLayout();
-        pn.setLayout(br);
+        this.setLayout(br);
 
         //Components 
         //initiate and add navbar
         this.add(initNavbar(), BorderLayout.SOUTH);
 
         //finally, add the base panel and its components.
-        this.add(pn);
+        this.add(cardPanel, BorderLayout.CENTER);
 
     }
 
@@ -89,9 +95,9 @@ public class Baseframe extends JFrame {
         GridLayout gr = new GridLayout(1, 3);
         navbar.setLayout(gr);
 
-        navButtonLeft = new JButton("left");
-        navButtonCenter = new JButton("center");
-        navButtonRight = new JButton("right");
+        navButtonLeft = new JButton("Previous card");
+        navButtonCenter = new JButton("Home");
+        navButtonRight = new JButton("Next card");
 
         navbar.add(navButtonLeft);
         navbar.add(navButtonCenter);
@@ -108,12 +114,12 @@ public class Baseframe extends JFrame {
      */
     public void switchViews(JPanel toSwitch) {
         //https://stackoverflow.com/a/44038268
-        pn.removeAll();
-        pn.repaint();
-        pn.revalidate();
+        cardPanel.removeAll();
+        cardPanel.repaint();
+        cardPanel.revalidate();
 
         this.add(toSwitch, BorderLayout.CENTER);
-        
+
     }
 
     /**
@@ -135,6 +141,16 @@ public class Baseframe extends JFrame {
      */
     public JButton getNavButtonRight() {
         return navButtonRight;
+    }
+
+    //returns cardlayout for whatever reason you might need it 
+    public CardLayout getCardLayout() {
+        return cards;
+    }
+
+    //gets cardpanel
+    public JPanel getCardPanel() {
+        return cardPanel;
     }
 
 }
