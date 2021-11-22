@@ -13,7 +13,7 @@ public abstract class BoilerplateDecorator implements EateryBoilerplate {
 
     protected EateryBoilerplate decoratedEateryBoilerplate;
 
-    public BoilerplateDecorator(FoodInfo decoratedEateryBoilerplate) {
+    public BoilerplateDecorator(EateryBoilerplate decoratedEateryBoilerplate) {
         this.decoratedEateryBoilerplate = decoratedEateryBoilerplate;
     }
 
