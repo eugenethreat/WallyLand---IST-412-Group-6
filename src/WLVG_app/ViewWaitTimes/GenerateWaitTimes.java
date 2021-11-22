@@ -19,49 +19,47 @@ public class GenerateWaitTimes {
 
     //constructor - kinda started
     public GenerateWaitTimes(int waitTime) {
-        this.waitTime = waitTime;
-        convertToInt();
+//        this.waitTime = waitTime;
+//        convertToInt();
     }
-    
-    public GenerateWaitTimes(){
-        
+
+    public GenerateWaitTimes() {
+
     }
 
     public Time generateRandomTime() {
         Random r = new Random();
-        
+
         Time time = new Time(r.nextLong());
         String strTime = time.toString();
 //        int waitTimes = Integer.parseInt(strTime);
-        
+
         return time;
 
     }
 
     //converting time to int
-    public void convertToInt() {
-        Random r = new Random();
-        int listOfRides = 10; //replace this with value for number of rides, I don't think I have that yet
-        for (int i = 0; i < listOfRides; i++) {
-            Time time = new Time(r.nextLong());
-            String strTime = time.toString();
-            int waitTimes = Integer.parseInt(strTime);
-            System.out.println(waitTimes);
-        }
-
-    }
-
+//    public void convertToInt() {
+//        Random r = new Random();
+//        int listOfRides = 10; //replace this with value for number of rides, I don't think I have that yet
+//        for (int i = 0; i < listOfRides; i++) {
+//            Time time = new Time(r.nextLong());
+//            String strTime = time.toString();
+//            int waitTimes = Integer.parseInt(strTime);
+//            System.out.println(waitTimes);
+//        }
+//
+//    }
     /**
      * @return the waitTime
      */
-    public int getWaitTime() {
-        return waitTime;
-    }
-
+//    public int getWaitTime() {
+//        return waitTime;
+//    }
     /**
      * @param waitTime the waitTime to set
      */
-    public void setWaitTime(int waitTime) {
-        this.waitTime = waitTime;
-    }
+//    public void setWaitTime(int waitTime) {
+//        this.waitTime = waitTime;
+//    }
 }
