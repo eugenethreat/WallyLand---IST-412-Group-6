@@ -224,26 +224,6 @@ public class Controller {
         }
     }
 
-    //@deprecated - use baseJFrame.getCardLayout().show(cards, 'name') instead! 
-    /*
-    public void login() {
-        //bp.switchViews(navigationMenuUI);
-        cards = baseJFrame.getCardPanel();
-        baseJFrame.getCardLayout().show(cards, "navigation");
-    }
-
-    /*
-    public void switchViews(JPanel newView) {
-        baseJFrame.switchViews(newView);
-    }
-   
-    }
-    public void switchToWaitTimes() {
-        //bp.switchViews(tp);
-        JPanel cards = baseJFrame.getCardPanel();
-        baseJFrame.getCardLayout().show(cards, "wait_times");
-    }
-     */
     //Adds the listner to the login button that checks credentials 
     private void addLoginListener() {
         JButton loginButton = loginUI.getBtnLogin();
@@ -293,5 +273,27 @@ public class Controller {
             }
         });
     }
+    
+    
+    //@deprecated - use baseJFrame.getCardLayout().show(cards, 'name') instead! 
+    /*
+    public void login() {
+        //bp.switchViews(navigationMenuUI);
+        cards = baseJFrame.getCardPanel();
+        baseJFrame.getCardLayout().show(cards, "navigation");
+    }
+
+    /*
+    public void switchViews(JPanel newView) {
+        baseJFrame.switchViews(newView);
+    }
+   
+    }
+    public void switchToWaitTimes() {
+        //bp.switchViews(tp);
+        JPanel cards = baseJFrame.getCardPanel();
+        baseJFrame.getCardLayout().show(cards, "wait_times");
+    }
+     */
 
 }
