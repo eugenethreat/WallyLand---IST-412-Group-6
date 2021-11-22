@@ -16,14 +16,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLabel3" alignment="0" pref="642" max="32767" attributes="0"/>
+          <Component id="jLabel" alignment="0" pref="642" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="ticketsBtn2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="timesBtn2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="foodBtn2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                  <Component id="hotelBtn2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="ticketsBtn" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="paymentBtn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="timesBtn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="foodBtn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                  <Component id="hotelBtn" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
           </Group>
@@ -32,22 +33,24 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jLabel3" min="-2" pref="104" max="-2" attributes="0"/>
+              <Component id="jLabel" min="-2" pref="104" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="hotelBtn2" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="hotelBtn" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="foodBtn2" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="foodBtn" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="timesBtn2" min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="timesBtn" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="ticketsBtn2" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
+              <Component id="ticketsBtn" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="paymentBtn" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="34" style="0"/>
@@ -56,45 +59,56 @@
         <Property name="text" type="java.lang.String" value="Welcome to the WallyLand Application!"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="hotelBtn2">
+    <Component class="javax.swing.JButton" name="hotelBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Book a Hotel"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hotelBtn2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hotelBtnActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="foodBtn2">
+    <Component class="javax.swing.JButton" name="foodBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Order Food"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="foodBtn2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="foodBtnActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="timesBtn2">
+    <Component class="javax.swing.JButton" name="timesBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Wait Times"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="timesBtn2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="timesBtnActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="ticketsBtn2">
+    <Component class="javax.swing.JButton" name="paymentBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Payment"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="paymentBtnActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="ticketsBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buy Tickets"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ticketsBtn2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ticketsBtnActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

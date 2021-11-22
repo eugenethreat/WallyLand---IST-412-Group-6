@@ -105,6 +105,7 @@ public class LoginPanel extends javax.swing.JPanel {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
         if(txtPassword.getText().equals("")||(txtUserName.getText().equals(""))) {
+        //Checks for input. Does not check existing data.
             System.out.println("Nope");
         }
         else {
@@ -112,6 +113,7 @@ public class LoginPanel extends javax.swing.JPanel {
             //successful login
             cntl.login();
         }
+        
 
     }//GEN-LAST:event_btnLoginActionPerformed
 

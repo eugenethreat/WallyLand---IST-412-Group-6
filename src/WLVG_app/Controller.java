@@ -17,7 +17,6 @@ import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import WLVG_app.Views.TestPanel;
 import ca.odell.glazedlists.EventList;
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Time;
@@ -85,7 +84,8 @@ public class Controller {
     }
 
     public void newPayment() {
-
+        JPanel cards = bp.getCardPanel();
+        bp.getCardLayout().show(cards, "payment");
     }
 
     //think about this better later
