@@ -116,7 +116,7 @@ public class NavigationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     //Buttons only functional for implemented use cases
-    
+
     private void hotelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_hotelBtnActionPerformed
@@ -130,9 +130,15 @@ public class NavigationPanel extends javax.swing.JPanel {
 //        cntl.switchToWaitTimes();
     }//GEN-LAST:event_timesBtn2ActionPerformed
 
+    private void timesBtnActionPerformed(java.awt.event.ActionEvent evt) {
+//        this.removeAll();
+//        cntl.switchToWaitTimes();
+    }
+
+
     private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         // TODO add your handling code here:
-        this.removeAll();
+//        this.removeAll();
         cntl.newPayment();
     }//GEN-LAST:event_paymentBtnActionPerformed
 
@@ -152,20 +158,20 @@ public class NavigationPanel extends javax.swing.JPanel {
 
 //Getters and setters 
     public JButton getTicketsBtn2() {
-        return ticketsBtn2;
+        return ticketsBtn;
     }
 
     public JButton getTimesBtn2() {
-        return timesBtn2;
+        return timesBtn;
     }
 
     public JButton getHotelBtn2() {
-        return hotelBtn2;
+        return hotelBtn;
 
     }
 
     public JButton getFoodBtn2() {
-        return foodBtn2;
+        return foodBtn;
     }
 
 }
