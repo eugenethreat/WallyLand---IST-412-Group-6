@@ -49,6 +49,8 @@ public class Baseframe extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setpreferredsize is the way
         this.setPreferredSize(new Dimension(550, 900));
+        this.setSize(new Dimension(550, 900));
+
 
         //Init base panel
         initBasePanel();

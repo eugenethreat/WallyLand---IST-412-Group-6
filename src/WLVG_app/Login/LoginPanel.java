@@ -5,6 +5,7 @@
 package WLVG_app.Login;
 
 import WLVG_app.Controller;
+
 /**
  *
  * @author jack
@@ -12,6 +13,7 @@ import WLVG_app.Controller;
 public class LoginPanel extends javax.swing.JPanel {
 
     private Controller cntl;
+
     /**
      * Creates new form LoginPanel
      */
@@ -102,19 +104,17 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    //@deprecated - Login logic moved to controller. 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
-        if(txtPassword.getText().equals("")||(txtUserName.getText().equals(""))) {
-            System.out.println("Nope");
-        }
-        else {
-            this.removeAll();
-            //successful login
-            cntl.login();
-        }
-
+//        if (txtPassword.getText().equals("") || (txtUserName.getText().equals(""))) {
+//            System.out.println("Nope");
+//        } else {
+//            this.removeAll();
+//            //successful login
+////            cntl.login();
+//        }
     }//GEN-LAST:event_btnLoginActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin;
@@ -124,4 +124,19 @@ public class LoginPanel extends javax.swing.JPanel {
     public javax.swing.JTextField txtPassword;
     public javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
+
+    
+    //Getters and Setters 
+    public String getPassword() {
+        return txtPassword.getText();
+
+    }
+
+    public String getUsername() {
+        return txtUserName.getText();
+    }
+
+    public javax.swing.JButton getBtnLogin() {
+        return btnLogin;
+    }
 }

@@ -15,9 +15,7 @@ import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.ViewWaitTimes.RideDetails;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
-import WLVG_app.Views.TestPanel;
 import ca.odell.glazedlists.EventList;
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Time;
@@ -34,54 +32,47 @@ import javax.swing.JRadioButton;
  */
 public class Controller {
 
-    Baseframe bp;
-    Model m;
+    private Baseframe baseJFrame;
+    private Model m;
 
-    PaymentUI pui = new PaymentUI();
-    PasswordStrengthPanel ps = new PasswordStrengthPanel();
-    PaymentCntl pc = new PaymentCntl();
-    LoginPanel lp = new LoginPanel(this);
-    NavigationPanel np = new NavigationPanel(this);
-    //testpanel - the container panel with mapUI
-    MapUI mp = new MapUI();
-    TestPanel tp = new TestPanel();
+    private PaymentCntl paymentController = new PaymentCntl();
+    private PaymentUI paymentUI = new PaymentUI();
+
+    private PasswordStrengthPanel passwordStrengthUI = new PasswordStrengthPanel();
+    private LoginPanel loginUI = new LoginPanel(this);
+    private NavigationPanel navigationMenuUI = new NavigationPanel(this);
+    private MapUI parkmapUI = new MapUI();
+
+    private JPanel cards;
 
     public Controller(Baseframe bp, Model m) {
-        this.bp = bp;
+        this.baseJFrame = bp;
         this.m = m;
 
-        this.navButtonsListeners();
+        //Add listeners to navButtons for switching between views 
+        this.createNavButtonListeners();
 
-        //ADDING THE VIEWS TO CARDVIEW
+        //Adding various UIs to CardView obj 
         //payment UI 
-        this.bp.getCardPanel().add(pui, "payment");
-        this.listenerThing();
+        this.baseJFrame.getCardPanel().add(paymentUI, "payment");
+        //Creates listener for storing payments 
+        this.createPaymentListeners();
 
-        //password strength checker
-        this.bp.getCardPanel().add(ps, "pwstrength");
-        //mapUI
-        //this.bp.getCardPanel().add(tp, "wait_times");       
-        this.bp.getCardPanel().add(mp, "wait_times");
-        //sample wait times 
+        this.baseJFrame.getCardPanel().add(passwordStrengthUI, "pwstrength");
+        this.baseJFrame.getCardPanel().add(parkmapUI, "wait_times");
+        //Sample wait times for parkmapUI 
         addSampleValues();
-        //new value button listener
-        JButton testValUpdate = mp.getTestValUpdate();
-        testValUpdate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setWaitTimes();
+        this.baseJFrame.getCardPanel().add(loginUI, "login");
+        addLoginListener();
+        this.baseJFrame.getCardPanel().add(navigationMenuUI, "navigation");
 
-            }
-        });
-
-        //login
-        this.bp.getCardPanel().add(lp, "login");
-        //navigation/home
-        this.bp.getCardPanel().add(np, "navigation");
-
-        //SHOWS LOGIN WHEN FIRST LOADING
-        JPanel cards = bp.getCardPanel();
+        //All views added
+        //Shows the user the login screen upon login. 
+        cards = bp.getCardPanel();
         bp.getCardLayout().show(cards, "login");
+        
+        //adds listeneres to navigation menu buttons 
+        addNavigationUIButtonListeners();
     }
 
     public void newPayment() {
@@ -89,15 +80,15 @@ public class Controller {
     }
 
     //think about this better later
-    public void listenerThing() {
-        JButton submitPaymentButton = pui.getSubmitPaymentButton();
+    public void createPaymentListeners() {
+        JButton submitPaymentButton = paymentUI.getSubmitPaymentButton();
         submitPaymentButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //submit a new payment based on the type
 
                 //get the payment type
-                ButtonGroup paymentTypePicker = pui.getBg();
+                ButtonGroup paymentTypePicker = paymentUI.getBg();
 
                 Enumeration<AbstractButton> buttonList = paymentTypePicker.getElements();
 
@@ -109,12 +100,12 @@ public class Controller {
                         //bad string matching - replace later 
 
                         //GET THE VALUES FROM THE FIELDS 
-                        String fName = pui.getNameField().getText();
-                        String lName = pui.getlastNameField().getText();
-//                        double ccNum = Double.parseDouble(pui.getCardNumField().getText());
-//                        int ccExpDate = Integer.parseInt(pui.getExpDateField().getText());
-//                        int ccCode = Integer.parseInt(pui.getSecurityCodeField().getText());
-//                        int zip = Integer.parseInt(pui.getZipCodeField().getText());
+                        String fName = paymentUI.getNameField().getText();
+                        String lName = paymentUI.getlastNameField().getText();
+//                        double ccNum = Double.parseDouble(paymentUI.getCardNumField().getText());
+//                        int ccExpDate = Integer.parseInt(paymentUI.getExpDateField().getText());
+//                        int ccCode = Integer.parseInt(paymentUI.getSecurityCodeField().getText());
+//                        int zip = Integer.parseInt(paymentUI.getZipCodeField().getText());
 
                         //These should really be strings to prevent issues such as spacing getting in the way
                         double ccNum = 1.1;
@@ -124,7 +115,7 @@ public class Controller {
 
                         BillingInfo info = new BillingInfo(fName, lName, ccNum, ccExpDate, ccCode, zip);
 
-                        pc.addPayment(button.getText(), info);
+                        paymentController.addPayment(button.getText(), info);
 
                     } else {
                     }
@@ -132,7 +123,7 @@ public class Controller {
                 }
 
                 System.out.println("STORED PAYMENTS ATM");
-                for (BillingInfo bi : pc.getPayments().getBillingInfo()) {
+                for (BillingInfo bi : paymentController.getPayments().getBillingInfo()) {
                     System.out.println(bi);
                 }
 
@@ -140,54 +131,34 @@ public class Controller {
         });
     }
 
-    public void switchViews(JPanel newView) {
-        bp.switchViews(newView);
-    }
-
-    public void login() {
-        //bp.switchViews(np);
-        JPanel cards = bp.getCardPanel();
-        bp.getCardLayout().show(cards, "navigation");
-
-    }
-
-    public void switchToWaitTimes() {
-        //bp.switchViews(tp);
-        JPanel cards = bp.getCardPanel();
-        bp.getCardLayout().show(cards, "wait_times");
-
-    }
-
-    //These navbar buttons are for switching views
-    //TODO: why does this just not work sometimes? 
-    //loading components? 
-    public void navButtonsListeners() {
-        bp.getNavButtonLeft().addActionListener(new ActionListener() {
+    //Creates the listeners for each navbar button to switch between views. 
+    public void createNavButtonListeners() {
+        baseJFrame.getNavButtonLeft().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                ps = new PasswordStrengthPanel();
+//                passwordStrengthUI = new PasswordStrengthPanel();
                 System.out.println("showing previous card");
                 //the big money
-                JPanel cards = bp.getCardPanel();
-                bp.getCardLayout().previous(cards);
+                JPanel cards = baseJFrame.getCardPanel();
+                baseJFrame.getCardLayout().previous(cards);
 
             }
         });
-        bp.getNavButtonCenter().addActionListener(new ActionListener() {
+        baseJFrame.getNavButtonCenter().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("switching to nav");
-                JPanel cards = bp.getCardPanel();
-                bp.getCardLayout().show(cards, "navigation");
+                JPanel cards = baseJFrame.getCardPanel();
+                baseJFrame.getCardLayout().show(cards, "navigation");
 
             }
         });
-        bp.getNavButtonRight().addActionListener(new ActionListener() {
+        baseJFrame.getNavButtonRight().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("showing new card");
-                JPanel cards = bp.getCardPanel();
-                bp.getCardLayout().next(cards);
+                JPanel cards = baseJFrame.getCardPanel();
+                baseJFrame.getCardLayout().next(cards);
 
             }
         });
@@ -196,7 +167,7 @@ public class Controller {
 
     //changing wait times 
     private void setWaitTimes() {
-        EventList<RideDetails> rideList = mp.getRideList();
+        EventList<RideDetails> rideList = parkmapUI.getRideList();
         //gets the wait times from Tomi's code and edits the view based on that 
 
         //to remove all values from the list 
@@ -213,7 +184,7 @@ public class Controller {
     }
 
     private void addSampleValues() {
-        EventList<RideDetails> rideList = mp.getRideList();
+        EventList<RideDetails> rideList = parkmapUI.getRideList();
 
         Time t = new Time(100);
 
@@ -228,6 +199,99 @@ public class Controller {
         RideDetails r3 = new RideDetails("WallyKids Coaster", generator.generateRandomTime(), "10:00am-8:00pm", 10);
         rideList.add(r3);
 
+        //Adds listener to button to refresh wait times 
+        JButton testValUpdate = parkmapUI.getTestValUpdate();
+        testValUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setWaitTimes();
+
+            }
+        });
+
+    }
+
+    public void checkUserCreds() {
+        String username = loginUI.getUsername();
+        String password = loginUI.getPassword();
+
+        //TODO - replace with actual login logic 
+        if (username.equals("") || (password.equals(""))) {
+            System.out.println("Nope");
+        } else {
+            //successful login
+            baseJFrame.getCardLayout().show(cards, "navigation");
+        }
+    }
+
+    //@deprecated - use baseJFrame.getCardLayout().show(cards, 'name') instead! 
+    /*
+    public void login() {
+        //bp.switchViews(navigationMenuUI);
+        cards = baseJFrame.getCardPanel();
+        baseJFrame.getCardLayout().show(cards, "navigation");
+    }
+
+    /*
+    public void switchViews(JPanel newView) {
+        baseJFrame.switchViews(newView);
+    }
+   
+    }
+    public void switchToWaitTimes() {
+        //bp.switchViews(tp);
+        JPanel cards = baseJFrame.getCardPanel();
+        baseJFrame.getCardLayout().show(cards, "wait_times");
+    }
+     */
+    //Adds the listner to the login button that checks credentials 
+    private void addLoginListener() {
+        JButton loginButton = loginUI.getBtnLogin();
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkUserCreds();
+            }
+        });
+
+    }
+
+    //nice long and verbose :)))))))
+    private void addNavigationUIButtonListeners() {
+        //Book a hotel
+        JButton hotelButton = navigationMenuUI.getHotelBtn2();
+        hotelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("not implemented yet");
+            }
+        });
+
+        //order food 
+        JButton foodButton = navigationMenuUI.getFoodBtn2();
+        foodButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("not implemented yet");
+            }
+        });
+
+        //View wait times 
+        JButton waitTimeButton = navigationMenuUI.getTimesBtn2();
+        waitTimeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                baseJFrame.getCardLayout().show(cards, "wait_times");
+            }
+        });
+        //Buy Tickets 
+        JButton ticketButton = navigationMenuUI.getTicketsBtn2();
+        ticketButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("not implemented yet");
+            }
+        });
     }
 
 }

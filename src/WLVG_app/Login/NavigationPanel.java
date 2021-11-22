@@ -5,6 +5,7 @@
 package WLVG_app.Login;
 
 import WLVG_app.Controller;
+import javax.swing.JButton;
 
 /**
  *
@@ -16,7 +17,7 @@ public class NavigationPanel extends javax.swing.JPanel {
      * Creates new form NavigationPage
      */
     private Controller cntl;
-    
+
     public NavigationPanel(Controller control) {
         this.cntl = control;
         initComponents();
@@ -112,8 +113,8 @@ public class NavigationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_foodBtn2ActionPerformed
 
     private void timesBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesBtn2ActionPerformed
-        this.removeAll();
-        cntl.switchToWaitTimes();
+//        this.removeAll();
+//        cntl.switchToWaitTimes();
     }//GEN-LAST:event_timesBtn2ActionPerformed
 
     private void ticketsBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsBtn2ActionPerformed
@@ -140,4 +141,23 @@ public class NavigationPanel extends javax.swing.JPanel {
     public javax.swing.JButton timesBtn1;
     public javax.swing.JButton timesBtn2;
     // End of variables declaration//GEN-END:variables
+
+//Getters and setters 
+    public JButton getTicketsBtn2() {
+        return ticketsBtn2;
+    }
+
+    public JButton getTimesBtn2() {
+        return timesBtn2;
+    }
+
+    public JButton getHotelBtn2() {
+        return hotelBtn2;
+
+    }
+
+    public JButton getFoodBtn2() {
+        return foodBtn2;
+    }
+
 }
