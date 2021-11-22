@@ -10,7 +10,7 @@ package WLVG_app.OrderFood;
  *
  * @author ellen
  */
-public class Menu implements FoodInfo {
+public class Menu implements EateryBoilerplate {
 
     private String location;
     private String hours;
