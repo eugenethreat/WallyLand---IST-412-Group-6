@@ -6,7 +6,6 @@
 package WLVG_app;
 
 import WLVG_app.Views.Baseframe;
-import WLVG_app.Views.PasswordStrengthPanel;
 
 /**
  *

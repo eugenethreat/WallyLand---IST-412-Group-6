@@ -5,7 +5,6 @@
  */
 package WLVG_app.OrderFood;
 
-import WLVG_app.OrderFood.FoodInfo;
 
 /**
  *

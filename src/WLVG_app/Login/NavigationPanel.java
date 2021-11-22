@@ -36,41 +36,49 @@ public class NavigationPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        hotelBtn2 = new javax.swing.JButton();
-        foodBtn2 = new javax.swing.JButton();
-        timesBtn2 = new javax.swing.JButton();
-        ticketsBtn2 = new javax.swing.JButton();
+        jLabel = new javax.swing.JLabel();
+        hotelBtn = new javax.swing.JButton();
+        foodBtn = new javax.swing.JButton();
+        timesBtn = new javax.swing.JButton();
+        paymentBtn = new javax.swing.JButton();
+        ticketsBtn = new javax.swing.JButton();
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 34)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Welcome to the WallyLand Application!");
+        jLabel.setFont(new java.awt.Font("Dialog", 0, 34)); // NOI18N
+        jLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel.setText("Welcome to the WallyLand Application!");
 
-        hotelBtn2.setText("Book a Hotel");
-        hotelBtn2.addActionListener(new java.awt.event.ActionListener() {
+        hotelBtn.setText("Book a Hotel");
+        hotelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hotelBtn2ActionPerformed(evt);
+                hotelBtnActionPerformed(evt);
             }
         });
 
-        foodBtn2.setText("Order Food");
-        foodBtn2.addActionListener(new java.awt.event.ActionListener() {
+        foodBtn.setText("Order Food");
+        foodBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                foodBtn2ActionPerformed(evt);
+                foodBtnActionPerformed(evt);
             }
         });
 
-        timesBtn2.setText("View Wait Times");
-        timesBtn2.addActionListener(new java.awt.event.ActionListener() {
+        timesBtn.setText("View Wait Times");
+        timesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                timesBtn2ActionPerformed(evt);
+                timesBtnActionPerformed(evt);
             }
         });
 
-        ticketsBtn2.setText("Buy Tickets");
-        ticketsBtn2.addActionListener(new java.awt.event.ActionListener() {
+        paymentBtn.setText("Payment");
+        paymentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ticketsBtn2ActionPerformed(evt);
+                paymentBtnActionPerformed(evt);
+            }
+        });
+
+        ticketsBtn.setText("Buy Tickets");
+        ticketsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketsBtnActionPerformed(evt);
             }
         });
 
@@ -78,68 +86,68 @@ public class NavigationPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+            .addComponent(jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ticketsBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(timesBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hotelBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ticketsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hotelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(258, 258, 258))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(hotelBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hotelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(foodBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(foodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(timesBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(ticketsBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addComponent(ticketsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void hotelBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelBtn2ActionPerformed
+    //Buttons only functional for implemented use cases
+    
+    private void hotelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hotelBtn2ActionPerformed
+    }//GEN-LAST:event_hotelBtnActionPerformed
 
-    private void foodBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodBtn2ActionPerformed
+    private void foodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_foodBtn2ActionPerformed
+    }//GEN-LAST:event_foodBtnActionPerformed
 
     private void timesBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesBtn2ActionPerformed
 //        this.removeAll();
 //        cntl.switchToWaitTimes();
     }//GEN-LAST:event_timesBtn2ActionPerformed
 
-    private void ticketsBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsBtn2ActionPerformed
+    private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ticketsBtn2ActionPerformed
+        this.removeAll();
+        cntl.newPayment();
+    }//GEN-LAST:event_paymentBtnActionPerformed
+
+    private void ticketsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketsBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ticketsBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton foodBtn;
-    public javax.swing.JButton foodBtn1;
-    public javax.swing.JButton foodBtn2;
     public javax.swing.JButton hotelBtn;
-    public javax.swing.JButton hotelBtn1;
-    public javax.swing.JButton hotelBtn2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel;
+    public javax.swing.JButton paymentBtn;
     public javax.swing.JButton ticketsBtn;
-    public javax.swing.JButton ticketsBtn1;
-    public javax.swing.JButton ticketsBtn2;
     public javax.swing.JButton timesBtn;
-    public javax.swing.JButton timesBtn1;
-    public javax.swing.JButton timesBtn2;
     // End of variables declaration//GEN-END:variables
 
 //Getters and setters 

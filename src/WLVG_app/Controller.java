@@ -76,7 +76,8 @@ public class Controller {
     }
 
     public void newPayment() {
-
+        JPanel cards = bp.getCardPanel();
+        bp.getCardLayout().show(cards, "payment");
     }
 
     //think about this better later
