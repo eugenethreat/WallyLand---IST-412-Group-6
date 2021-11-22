@@ -13,31 +13,23 @@ import java.util.Random;
  * @author tomia
  */
 public class GenerateWaitTimes {
-
-    private int waitTime;
-    private RideDetails rideList;
-
-    //constructor - kinda started
-    public GenerateWaitTimes(int waitTime) {
-//        this.waitTime = waitTime;
-//        convertToInt();
-    }
-
+    
     public GenerateWaitTimes() {
 
     }
 
     public Time generateRandomTime() {
         Random r = new Random();
-
         Time time = new Time(r.nextLong());
-        String strTime = time.toString();
-//        int waitTimes = Integer.parseInt(strTime);
-
         return time;
 
     }
 
+    /*
+    @Deprecated - these features were removed since they were not used; 
+    the only part of this class being used is the getRandomTime() function. 
+    
+    */
     //converting time to int
 //    public void convertToInt() {
 //        Random r = new Random();
