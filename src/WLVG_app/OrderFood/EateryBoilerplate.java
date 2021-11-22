@@ -9,6 +9,6 @@ package WLVG_app.OrderFood;
  *
  * @author ellen
  */
-public interface FoodInfo {
+public interface EateryBoilerplate {
     void boilerplate();
 }
