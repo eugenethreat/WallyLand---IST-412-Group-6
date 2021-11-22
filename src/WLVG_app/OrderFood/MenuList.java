@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author ellen
  */
-public class MenuList implements FoodInfo {
+public class MenuList implements EateryBoilerplate {
     
      private ArrayList<Menu> menus = new ArrayList();
 
