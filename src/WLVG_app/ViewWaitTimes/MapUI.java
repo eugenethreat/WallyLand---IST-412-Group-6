@@ -38,7 +38,7 @@ public class MapUI extends JPanel {
     String path = "src/img/park1.jpg";
 
     //@param the list of wait times
-    EventList<WaitTime> testList = new BasicEventList<>();
+//    EventList<WaitTime> testList = new BasicEventList<>();
     EventList<RideDetails> rideList = new BasicEventList<>();
 
     JButton testValUpdate;
@@ -73,7 +73,7 @@ public class MapUI extends JPanel {
     //inits the wait time list 
     public JPanel initWaitList() {
         JPanel listContainer = new JPanel();
-        testList = new BasicEventList<>();
+//        testList = new BasicEventList<>();
 
         //sample values for thingy
         addSampleValues();
@@ -116,10 +116,7 @@ public class MapUI extends JPanel {
 
     }
 
-    public void addWaitTime(WaitTime wt) {
-
-    }
-
+  
     public EventList<RideDetails> getRideList() {
         return rideList;
 
