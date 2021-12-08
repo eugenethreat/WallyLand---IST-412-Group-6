@@ -9,12 +9,12 @@ package WLVG_app.OrderFood;
  *
  * @author ellen
  */
-public class BrowseLocationsUI {
+public class BrowseEateriesUI {
     
     /**
     * Initializes variables and sets controller
     */
-    public BrowseLocationsUI() {
+    public BrowseEateriesUI() {
         
     }
     
