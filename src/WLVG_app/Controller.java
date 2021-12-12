@@ -241,14 +241,41 @@ public class Controller {
 
         GenerateWaitTimes generator = new GenerateWaitTimes();
 
-        RideDetails r1 = new RideDetails("WallyCoaster 1", generator.generateRandomTime(), "10:00am-8:00pm", 10);
+        RideDetails r1 = new RideDetails("WallyCoaster Extreme", generator.generateRandomTime(), "10:00am-10:00pm", 10);
         rideList.add(r1);
 
         RideDetails r2 = new RideDetails("WallyCups", generator.generateRandomTime(), "10:00am-8:00pm", 15);
         rideList.add(r2);
 
-        RideDetails r3 = new RideDetails("WallyKids Coaster", generator.generateRandomTime(), "10:00am-8:00pm", 10);
+        RideDetails r3 = new RideDetails("WallyKids Coaster", generator.generateRandomTime(), "10:00am-6:00pm", 10);
         rideList.add(r3);
+        
+        RideDetails r4 = new RideDetails("Wally Water Adventure", generator.generateRandomTime(), "10:00am-6:00pm", 8);
+        rideList.add(r4);
+
+        RideDetails r5 = new RideDetails("Wally Rockin' Coaster", generator.generateRandomTime(), "10:00am-10:00pm", 28);
+        rideList.add(r5);
+
+        RideDetails r6 = new RideDetails("WallyWorld Ultimate Drop", generator.generateRandomTime(), "10:00am-10:00pm", 24);
+        rideList.add(r6);
+
+        RideDetails r7 = new RideDetails("Wally Super Shot", generator.generateRandomTime(), "10:00am-8:00pm", 2);
+        rideList.add(r7);
+
+        RideDetails r8 = new RideDetails("Wally Mighty Mountain", generator.generateRandomTime(), "10:00am-10:00pm", 10);
+        rideList.add(r8);
+        
+        RideDetails r9 = new RideDetails("Wally Jungle Train", generator.generateRandomTime(), "10:00am-8:00pm", 12);
+        rideList.add(r9);
+        
+        RideDetails r10 = new RideDetails("Wally Wonder Spaceship", generator.generateRandomTime(), "10:00am-10:00pm", 9);
+        rideList.add(r10);
+        
+        RideDetails r11 = new RideDetails("Wally Winter Wonderland", generator.generateRandomTime(), "6:00pm-10:00pm", 16;
+        rideList.add(r11);
+        
+        RideDetails r12 = new RideDetails("Wally Princess Castle", generator.generateRandomTime(), "10:00am-4:00pm", 28);
+        rideList.add(r12);
 
         //Adds listener to button to refresh wait times 
         JButton testValUpdate = parkmapUI.getTestValUpdate();
