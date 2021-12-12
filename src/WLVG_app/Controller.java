@@ -22,8 +22,11 @@ import WLVG_app.Ticketing.BuyTicketsPanel;
 import WLVG_app.Ticketing.Park;
 import WLVG_app.Ticketing.TicketManager;
 import ca.odell.glazedlists.EventList;
+import com.google.gson.Gson;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Time;
 import java.util.Date;
 import java.util.Enumeration;
@@ -31,6 +34,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -97,6 +101,10 @@ public class Controller {
 
         //adds listeneres to navigation menu buttons 
         addNavigationUIButtonListeners();
+        //then, hide the buttons until user is logged in
+        baseJFrame.getNavButtonLeft().setVisible(false);
+        baseJFrame.getNavButtonCenter().setVisible(false);
+        baseJFrame.getNavButtonRight().setVisible(false);
     }
 
     public void newPayment() {
@@ -104,7 +112,7 @@ public class Controller {
         this.baseJFrame.setVisible(false);
         this.paymentScreen.setVisible(true);
     }
-    
+
     public void paymentDone() {
         this.baseJFrame.setVisible(true);
     }
@@ -258,12 +266,19 @@ public class Controller {
         String username = loginUI.getUsername();
         String password = loginUI.getPassword();
 
-        //TODO - replace with actual login logic 
         if (username.equals("") || (password.equals(""))) {
-            System.out.println("Nope");
+            JOptionPane.showMessageDialog(null, "Credentials cannot be empty - try again.");
+
+        } else if (!username.equals("demouser") || (!password.equals("1234"))) {
+            JOptionPane.showMessageDialog(null, "Incorrect credentials - try again.");
+
         } else {
             //successful login
             baseJFrame.getCardLayout().show(cards, "navigation");
+            //show the navigation things 
+            baseJFrame.getNavButtonLeft().setVisible(true);
+            baseJFrame.getNavButtonCenter().setVisible(true);
+            baseJFrame.getNavButtonRight().setVisible(true);
         }
     }
 
@@ -313,7 +328,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Get what's needed to fill values
-                
+
                 ticketManager = new TicketManager();
                 JComboBox dateBox = ticketsPanel.getDateComboBox();
                 JComboBox locationBox = ticketsPanel.getLocationComboBox();
@@ -326,11 +341,10 @@ public class Controller {
                 for (Date d : ticketManager.getPossibleDates()) {
                     dateBox.addItem(d);
                 }
-                
-                for(int i = 0 ; i < 5 ; i++){
+
+                for (int i = 0; i < 5; i++) {
                     quantityBox.addItem(i);
                 }
-                
 
                 baseJFrame.getCardLayout().show(cards, "tickets");
 
@@ -374,4 +388,22 @@ public class Controller {
         baseJFrame.getCardLayout().show(cards, "wait_times");
     }
      */
+    public void writeNewPayment(BillingInfo bInfo) {
+
+        Gson gson = new Gson();
+
+        try (FileWriter writer = new FileWriter("billinginfo.json")) {
+            gson.toJson(bInfo, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(bInfo.getFirstName());
+        System.out.println(bInfo.getLastName());
+        System.out.println(bInfo.getCardNumber());
+        System.out.println(bInfo.getExpirationDate());
+        System.out.println(bInfo.getSecurityCode());
+        System.out.println(bInfo.getBillingZipCode());
+
+    }
 }
