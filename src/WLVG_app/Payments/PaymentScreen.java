@@ -56,21 +56,21 @@ public class PaymentScreen extends javax.swing.JFrame {
         cardNumberField.setToolTipText("");
 
         firstNameLabel.setLabelFor(firstNameField);
-        firstNameLabel.setText("First Name:");
+        firstNameLabel.setText("First Name (String):");
 
-        lastNameLabel.setText("Last Name:");
+        lastNameLabel.setText("Last Name (String):");
 
         jLabel3.setLabelFor(expirationDateField);
-        jLabel3.setText("Expiration Date:");
+        jLabel3.setText("Expiration Date (Number):");
 
         jLabel4.setLabelFor(cardNumberField);
-        jLabel4.setText("Credit Card Number:");
+        jLabel4.setText("Credit Card Number (Number):");
 
         jLabel1.setLabelFor(zipCodeField);
-        jLabel1.setText("Security Code:");
+        jLabel1.setText("Security Code (Number):");
 
         jLabel5.setLabelFor(securityCodeField);
-        jLabel5.setText("Zip Code:");
+        jLabel5.setText("Zip Code (Number):");
 
         pageTitle.setFont(new java.awt.Font("Malayalam MN", 0, 36)); // NOI18N
         pageTitle.setForeground(new java.awt.Color(205, 13, 12));
@@ -174,8 +174,6 @@ public class PaymentScreen extends javax.swing.JFrame {
         boolean success = true;
         BillingInfo bInfo = new BillingInfo();
 
-        //input validation 
-        //many try/catches for separate output messages  
         String firstName = "";
         String lastName = "";
         Double cardNumber = 0.0;
@@ -183,6 +181,8 @@ public class PaymentScreen extends javax.swing.JFrame {
         Integer securityCode = 0;
         Integer billingZipCode = 0;
 
+        //input validation 
+        //many try/catches for separate output messages  
         //First name 
         try {
             firstName = firstNameField.getText();
