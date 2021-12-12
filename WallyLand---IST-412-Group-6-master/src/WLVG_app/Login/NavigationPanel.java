@@ -5,7 +5,6 @@
 package WLVG_app.Login;
 
 import WLVG_app.Controller;
-import javax.swing.JButton;
 
 /**
  *
@@ -17,7 +16,7 @@ public class NavigationPanel extends javax.swing.JPanel {
      * Creates new form NavigationPage
      */
     private Controller cntl;
-
+    
     public NavigationPanel(Controller control) {
         this.cntl = control;
         initComponents();
@@ -45,7 +44,7 @@ public class NavigationPanel extends javax.swing.JPanel {
 
         jLabel.setFont(new java.awt.Font("Dialog", 0, 34)); // NOI18N
         jLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel.setText("WallyLand Home");
+        jLabel.setText("Welcome to the WallyLand Application!");
 
         hotelBtn.setText("Book a Hotel");
         hotelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -86,16 +85,16 @@ public class NavigationPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
+            .addComponent(jLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ticketsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(timesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(foodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hotelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(258, 258, 258))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +115,7 @@ public class NavigationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     //Buttons only functional for implemented use cases
-
+    
     private void hotelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_hotelBtnActionPerformed
@@ -125,20 +124,14 @@ public class NavigationPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_foodBtnActionPerformed
 
-    private void timesBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesBtn2ActionPerformed
-//        this.removeAll();
-//        cntl.switchToWaitTimes();
-    }//GEN-LAST:event_timesBtn2ActionPerformed
-
-    private void timesBtnActionPerformed(java.awt.event.ActionEvent evt) {
-//        this.removeAll();
-//        cntl.switchToWaitTimes();
-    }
-
+    private void timesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesBtnActionPerformed
+        this.removeAll();
+        cntl.switchToWaitTimes();
+    }//GEN-LAST:event_timesBtnActionPerformed
 
     private void paymentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentBtnActionPerformed
         // TODO add your handling code here:
-//        this.removeAll();
+        this.removeAll();
         cntl.newPayment();
     }//GEN-LAST:event_paymentBtnActionPerformed
 
@@ -155,23 +148,4 @@ public class NavigationPanel extends javax.swing.JPanel {
     public javax.swing.JButton ticketsBtn;
     public javax.swing.JButton timesBtn;
     // End of variables declaration//GEN-END:variables
-
-//Getters and setters 
-    public JButton getTicketsBtn2() {
-        return ticketsBtn;
-    }
-
-    public JButton getTimesBtn2() {
-        return timesBtn;
-    }
-
-    public JButton getHotelBtn2() {
-        return hotelBtn;
-
-    }
-
-    public JButton getFoodBtn2() {
-        return foodBtn;
-    }
-
 }

@@ -5,7 +5,6 @@
 package WLVG_app.Login;
 
 import WLVG_app.Controller;
-
 /**
  *
  * @author jack
@@ -13,7 +12,6 @@ import WLVG_app.Controller;
 public class LoginPanel extends javax.swing.JPanel {
 
     private Controller cntl;
-
     /**
      * Creates new form LoginPanel
      */
@@ -40,7 +38,7 @@ public class LoginPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("DIN Condensed", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("WallyLand App");
+        jLabel3.setText("WallyLand Amusement Park");
 
         txtUserName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
@@ -66,7 +64,7 @@ public class LoginPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -77,10 +75,10 @@ public class LoginPanel extends javax.swing.JPanel {
                     .addComponent(txtUserName)
                     .addComponent(txtPassword))
                 .addGap(71, 71, 71))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(205, 205, 205))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,9 +92,9 @@ public class LoginPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPassWord)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(59, 59, 59)
                 .addComponent(btnLogin)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,17 +102,21 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
-    //@deprecated - Login logic moved to controller. 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
-//        if (txtPassword.getText().equals("") || (txtUserName.getText().equals(""))) {
-//            System.out.println("Nope");
-//        } else {
-//            this.removeAll();
-//            //successful login
-////            cntl.login();
-//        }
+        if(txtPassword.getText().equals("")||(txtUserName.getText().equals(""))) {
+        //Checks for input. Does not check existing data.
+            System.out.println("Nope");
+        }
+        else {
+            this.removeAll();
+            //successful login
+            cntl.login();
+        }
+        
+
     }//GEN-LAST:event_btnLoginActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin;
@@ -124,19 +126,4 @@ public class LoginPanel extends javax.swing.JPanel {
     public javax.swing.JTextField txtPassword;
     public javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
-
-    
-    //Getters and Setters 
-    public String getPassword() {
-        return txtPassword.getText();
-
-    }
-
-    public String getUsername() {
-        return txtUserName.getText();
-    }
-
-    public javax.swing.JButton getBtnLogin() {
-        return btnLogin;
-    }
 }

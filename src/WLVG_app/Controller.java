@@ -15,6 +15,8 @@ import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.ViewWaitTimes.RideDetails;
 import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
+import WLVG_app.BookHotels.HotelInputPanel;
+import WLVG_app.BookHotels.HotelListPanel;
 import ca.odell.glazedlists.EventList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +39,14 @@ public class Controller {
 
     private PaymentCntl paymentController = new PaymentCntl();
     private PaymentUI paymentUI = new PaymentUI();
+    
+    private HotelInputPanel hotelInput = new HotelInputPanel(this);
+    private HotelListPanel hotelList = new HotelListPanel(this);
+
+    private String hotel;
+    private String roomType;
+    private String bed;
+    private String layout;
 
     private PasswordStrengthPanel passwordStrengthUI = new PasswordStrengthPanel();
     private LoginPanel loginUI = new LoginPanel(this);
@@ -57,7 +67,10 @@ public class Controller {
         this.baseJFrame.getCardPanel().add(paymentUI, "payment");
         //Creates listener for storing payments 
         this.createPaymentListeners();
-
+        
+        this.baseJFrame.getCardPanel().add(hotelInput, "hotelInput");
+        this.baseJFrame.getCardPanel().add(hotelList, "hotelList");
+        
         this.baseJFrame.getCardPanel().add(passwordStrengthUI, "pwstrength");
         this.baseJFrame.getCardPanel().add(parkmapUI, "wait_times");
         //Sample wait times for parkmapUI 
@@ -77,6 +90,19 @@ public class Controller {
 
     public void newPayment() {
         baseJFrame.getCardLayout().show(cards, "payment");
+    }
+    
+    public void selectHotels(String hotel, String roomType, String bed, String layout) {
+        baseJFrame.getCardLayout().show(cards, "hotelList");
+        this.hotel = hotel;
+        this.bed = bed;
+        this.roomType = roomType;
+        this.layout = layout;
+        hotelList.filterVacancies();
+    }
+    
+    public void backToInputs() {
+        baseJFrame.getCardLayout().show(cards, "hotelInput");
     }
 
     //think about this better later
@@ -243,7 +269,7 @@ public class Controller {
         hotelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("not implemented yet");
+                baseJFrame.getCardLayout().show(cards, "hotelInput");
             }
         });
 
@@ -274,6 +300,22 @@ public class Controller {
         });
     }
     
+    public String getHotel() {
+        return hotel;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public String getBed() {
+        return bed;
+    }
+
+    public String getLayout() {
+        return layout;
+    }
+    
     
     //@deprecated - use baseJFrame.getCardLayout().show(cards, 'name') instead! 
     /*
@@ -295,5 +337,7 @@ public class Controller {
         baseJFrame.getCardLayout().show(cards, "wait_times");
     }
      */
+
+    
 
 }
