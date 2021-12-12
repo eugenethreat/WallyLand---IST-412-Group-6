@@ -22,8 +22,11 @@ import WLVG_app.Ticketing.BuyTicketsPanel;
 import WLVG_app.Ticketing.Park;
 import WLVG_app.Ticketing.TicketManager;
 import ca.odell.glazedlists.EventList;
+import com.google.gson.Gson;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Time;
 import java.util.Date;
 import java.util.Enumeration;
@@ -104,7 +107,7 @@ public class Controller {
         this.baseJFrame.setVisible(false);
         this.paymentScreen.setVisible(true);
     }
-    
+
     public void paymentDone() {
         this.baseJFrame.setVisible(true);
     }
@@ -253,7 +256,7 @@ public class Controller {
         });
 
     }
-    
+
     public void checkUserCreds() {
         String username = loginUI.getUsername();
         String password = loginUI.getPassword();
@@ -313,7 +316,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Get what's needed to fill values
-                
+
                 ticketManager = new TicketManager();
                 JComboBox dateBox = ticketsPanel.getDateComboBox();
                 JComboBox locationBox = ticketsPanel.getLocationComboBox();
@@ -326,11 +329,11 @@ public class Controller {
                 for (Date d : ticketManager.getPossibleDates()) {
                     dateBox.addItem(d);
                 }
-                
-                for(int i = 0 ; i < 5 ; i++){
+
+                for (int i = 0; i < 5; i++) {
                     quantityBox.addItem(i);
                 }
-                
+
                 baseJFrame.getCardLayout().show(cards, "tickets");
 
             }
@@ -373,4 +376,22 @@ public class Controller {
         baseJFrame.getCardLayout().show(cards, "wait_times");
     }
      */
+    public void writeNewPayment(BillingInfo bInfo) {
+
+        Gson gson = new Gson();
+
+        try (FileWriter writer = new FileWriter("billinginfo.json")) {
+            gson.toJson(bInfo, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(bInfo.getFirstName());
+        System.out.println(bInfo.getLastName());
+        System.out.println(bInfo.getCardNumber());
+        System.out.println(bInfo.getExpirationDate());
+        System.out.println(bInfo.getSecurityCode());
+        System.out.println(bInfo.getBillingZipCode());
+
+    }
 }

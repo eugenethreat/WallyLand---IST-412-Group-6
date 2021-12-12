@@ -109,7 +109,7 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void goNextButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
         if(String.valueOf(QuantityComboBox.getSelectedItem()).equals("0")) {
             JOptionPane.showMessageDialog(null,"You must purchase at least 1 ticket");
         }
