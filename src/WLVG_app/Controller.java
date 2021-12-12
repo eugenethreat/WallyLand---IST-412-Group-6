@@ -34,6 +34,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -100,6 +101,10 @@ public class Controller {
 
         //adds listeneres to navigation menu buttons 
         addNavigationUIButtonListeners();
+        //then, hide the buttons until user is logged in
+        baseJFrame.getNavButtonLeft().setVisible(false);
+        baseJFrame.getNavButtonCenter().setVisible(false);
+        baseJFrame.getNavButtonRight().setVisible(false);
     }
 
     public void newPayment() {
@@ -261,12 +266,19 @@ public class Controller {
         String username = loginUI.getUsername();
         String password = loginUI.getPassword();
 
-        //TODO - replace with actual login logic 
         if (username.equals("") || (password.equals(""))) {
-            System.out.println("Nope");
+            JOptionPane.showMessageDialog(null, "Credentials cannot be empty - try again.");
+
+        } else if (!username.equals("demouser") || (!password.equals("1234"))) {
+            JOptionPane.showMessageDialog(null, "Incorrect credentials - try again.");
+
         } else {
             //successful login
             baseJFrame.getCardLayout().show(cards, "navigation");
+            //show the navigation things 
+            baseJFrame.getNavButtonLeft().setVisible(true);
+            baseJFrame.getNavButtonCenter().setVisible(true);
+            baseJFrame.getNavButtonRight().setVisible(true);
         }
     }
 
