@@ -59,7 +59,7 @@ public class Controller {
     private MapUI parkmapUI = new MapUI();
 
     private TicketManager ticketManager = new TicketManager();
-    private BuyTicketsPanel ticketsPanel = new BuyTicketsPanel();
+    private BuyTicketsPanel ticketsPanel = new BuyTicketsPanel(this);
 
     private JPanel cards;
 
