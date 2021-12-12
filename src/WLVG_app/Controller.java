@@ -245,7 +245,7 @@ public class Controller {
         });
 
     }
-
+    
     public void checkUserCreds() {
         String username = loginUI.getUsername();
         String password = loginUI.getPassword();
@@ -323,7 +323,6 @@ public class Controller {
                     quantityBox.addItem(i);
                 }
                 
-
                 baseJFrame.getCardLayout().show(cards, "tickets");
 
             }

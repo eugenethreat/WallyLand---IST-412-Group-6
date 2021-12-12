@@ -34,7 +34,7 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         QuantityComboBox = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        goNextButton = new javax.swing.JButton();
 
         BuyTicketsPanel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         BuyTicketsPanel.setText("Purchase Tickets");
@@ -45,10 +45,10 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Quantity");
 
-        jButton1.setText("Next");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        goNextButton.setText("Next");
+        goNextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                goNextButtonActionPerformed(evt);
             }
         });
 
@@ -76,7 +76,7 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
                             .addGap(53, 53, 53)
                             .addComponent(LocationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(goNextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99)))
                 .addGap(127, 127, 127))
         );
@@ -98,14 +98,14 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(QuantityComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(jButton1)
+                .addComponent(goNextButton)
                 .addContainerGap(213, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void goNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goNextButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_goNextButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -113,7 +113,7 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> DateComboBox;
     private javax.swing.JComboBox<String> LocationComboBox;
     private javax.swing.JComboBox<String> QuantityComboBox;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton goNextButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -150,7 +150,7 @@ public class BuyTicketsPanel extends javax.swing.JPanel {
     /**
      * @return the jButton1
      */
-    public javax.swing.JButton getjButton1() {
-        return jButton1;
+    public javax.swing.JButton getGoNextButton() {
+        return goNextButton;
     }
 }
