@@ -17,6 +17,7 @@ import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import WLVG_app.BookHotels.HotelInputPanel;
 import WLVG_app.BookHotels.HotelListPanel;
+import WLVG_app.Payments.PaymentScreen;
 import WLVG_app.Ticketing.BuyTicketsPanel;
 import WLVG_app.Ticketing.Park;
 import WLVG_app.Ticketing.TicketManager;
@@ -41,6 +42,7 @@ public class Controller {
 
     private Baseframe baseJFrame;
     private Model m;
+    private PaymentScreen paymentScreen = new PaymentScreen(this);
 
     private PaymentCntl paymentController = new PaymentCntl();
     private PaymentUI paymentUI = new PaymentUI();
@@ -59,7 +61,7 @@ public class Controller {
     private MapUI parkmapUI = new MapUI();
 
     private TicketManager ticketManager = new TicketManager();
-    private BuyTicketsPanel ticketsPanel = new BuyTicketsPanel();
+    private BuyTicketsPanel ticketsPanel = new BuyTicketsPanel(this);
 
     private JPanel cards;
 
@@ -98,7 +100,13 @@ public class Controller {
     }
 
     public void newPayment() {
-        baseJFrame.getCardLayout().show(cards, "payment");
+        //baseJFrame.getCardLayout().show(cards, "payment");
+        this.baseJFrame.setVisible(false);
+        this.paymentScreen.setVisible(true);
+    }
+    
+    public void paymentDone() {
+        this.baseJFrame.setVisible(true);
     }
 
     public void selectHotels(String hotel, String roomType, String bed, String layout) {
