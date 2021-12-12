@@ -47,6 +47,9 @@ public class BillingInfo {
         this.billingZipCode = billingZipCode;
     }
 
+    BillingInfo() {
+    }
+
     /**
      * Getter for the first name variables
      *
