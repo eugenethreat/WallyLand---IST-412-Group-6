@@ -17,14 +17,19 @@ import WLVG_app.Views.Baseframe;
 import WLVG_app.Views.PasswordStrengthPanel;
 import WLVG_app.BookHotels.HotelInputPanel;
 import WLVG_app.BookHotels.HotelListPanel;
+import WLVG_app.Ticketing.BuyTicketsPanel;
+import WLVG_app.Ticketing.Park;
+import WLVG_app.Ticketing.TicketManager;
 import ca.odell.glazedlists.EventList;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Time;
+import java.util.Date;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -39,7 +44,7 @@ public class Controller {
 
     private PaymentCntl paymentController = new PaymentCntl();
     private PaymentUI paymentUI = new PaymentUI();
-    
+
     private HotelInputPanel hotelInput = new HotelInputPanel(this);
     private HotelListPanel hotelList = new HotelListPanel(this);
 
@@ -52,6 +57,9 @@ public class Controller {
     private LoginPanel loginUI = new LoginPanel(this);
     private NavigationPanel navigationMenuUI = new NavigationPanel(this);
     private MapUI parkmapUI = new MapUI();
+
+    private TicketManager ticketManager = new TicketManager();
+    private BuyTicketsPanel ticketsPanel = new BuyTicketsPanel();
 
     private JPanel cards;
 
@@ -67,10 +75,10 @@ public class Controller {
         this.baseJFrame.getCardPanel().add(paymentUI, "payment");
         //Creates listener for storing payments 
         this.createPaymentListeners();
-        
+
         this.baseJFrame.getCardPanel().add(hotelInput, "hotelInput");
         this.baseJFrame.getCardPanel().add(hotelList, "hotelList");
-        
+
         this.baseJFrame.getCardPanel().add(passwordStrengthUI, "pwstrength");
         this.baseJFrame.getCardPanel().add(parkmapUI, "wait_times");
         //Sample wait times for parkmapUI 
@@ -78,12 +86,13 @@ public class Controller {
         this.baseJFrame.getCardPanel().add(loginUI, "login");
         addLoginListener();
         this.baseJFrame.getCardPanel().add(navigationMenuUI, "navigation");
+        this.baseJFrame.getCardPanel().add(ticketsPanel, "tickets");
 
         //All views added
         //Shows the user the login screen upon login. 
         cards = bp.getCardPanel();
         bp.getCardLayout().show(cards, "login");
-        
+
         //adds listeneres to navigation menu buttons 
         addNavigationUIButtonListeners();
     }
@@ -91,7 +100,7 @@ public class Controller {
     public void newPayment() {
         baseJFrame.getCardLayout().show(cards, "payment");
     }
-    
+
     public void selectHotels(String hotel, String roomType, String bed, String layout) {
         baseJFrame.getCardLayout().show(cards, "hotelList");
         this.hotel = hotel;
@@ -100,7 +109,7 @@ public class Controller {
         this.layout = layout;
         hotelList.filterVacancies();
     }
-    
+
     public void backToInputs() {
         baseJFrame.getCardLayout().show(cards, "hotelInput");
     }
@@ -295,11 +304,32 @@ public class Controller {
         ticketButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("not implemented yet");
+                //Get what's needed to fill values
+                
+                ticketManager = new TicketManager();
+                JComboBox dateBox = ticketsPanel.getDateComboBox();
+                JComboBox locationBox = ticketsPanel.getLocationComboBox();
+                JComboBox quantityBox = ticketsPanel.getQuantityComboBox();
+
+                for (Park p : ticketManager.getListOfParks()) {
+                    locationBox.addItem(p.getParkName());
+                }
+
+                for (Date d : ticketManager.getPossibleDates()) {
+                    dateBox.addItem(d);
+                }
+                
+                for(int i = 0 ; i < 5 ; i++){
+                    quantityBox.addItem(i);
+                }
+                
+
+                baseJFrame.getCardLayout().show(cards, "tickets");
+
             }
         });
     }
-    
+
     public String getHotel() {
         return hotel;
     }
@@ -315,8 +345,7 @@ public class Controller {
     public String getLayout() {
         return layout;
     }
-    
-    
+
     //@deprecated - use baseJFrame.getCardLayout().show(cards, 'name') instead! 
     /*
     public void login() {
@@ -337,7 +366,4 @@ public class Controller {
         baseJFrame.getCardLayout().show(cards, "wait_times");
     }
      */
-
-    
-
 }
