@@ -210,7 +210,7 @@ public class Controller {
         RideDetails r10 = new RideDetails("Wally Wonder Spaceship", generator.generateRandomTime(), "10:00am-10:00pm", 9);
         rideList.add(r10);
         
-        RideDetails r11 = new RideDetails("Wally Winter Wonderland", generator.generateRandomTime(), "6:00pm-10:00pm", 16;
+        RideDetails r11 = new RideDetails("Wally Winter Wonderland", generator.generateRandomTime(), "6:00pm-10:00pm", 16);
         rideList.add(r11);
         
         RideDetails r12 = new RideDetails("Wally Princess Castle", generator.generateRandomTime(), "10:00am-4:00pm", 28);
