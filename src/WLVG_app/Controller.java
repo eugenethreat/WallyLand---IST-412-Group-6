@@ -52,7 +52,7 @@ public class Controller {
     private String bed;
     private String layout;
 
-    private PasswordStrengthPanel passwordStrengthUI = new PasswordStrengthPanel();
+//    private PasswordStrengthPanel passwordStrengthUI = new PasswordStrengthPanel();
     private LoginPanel loginUI = new LoginPanel(this);
     private NavigationPanel navigationMenuUI = new NavigationPanel(this);
     private MapUI parkmapUI = new MapUI();
@@ -73,7 +73,7 @@ public class Controller {
         this.baseJFrame.getCardPanel().add(hotelInput, "hotelInput");
         this.baseJFrame.getCardPanel().add(hotelList, "hotelList");
 
-        this.baseJFrame.getCardPanel().add(passwordStrengthUI, "pwstrength");
+//        this.baseJFrame.getCardPanel().add(passwordStrengthUI, "pwstrength");
         this.baseJFrame.getCardPanel().add(parkmapUI, "wait_times");
         //Sample wait times for parkmapUI 
         addSampleValues();
