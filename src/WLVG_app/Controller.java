@@ -324,9 +324,9 @@ public class Controller {
         return layout;
     }
 
-    private String ticketDate;
-    private String ticketLocation;
-    private int ticketQuantity;
+    private String ticketDate = "";
+    private String ticketLocation = "";
+    private int ticketQuantity = 0;
 
     public void setTicketLocation(String location) {
         ticketLocation = location;
@@ -375,6 +375,7 @@ public class Controller {
                 parkId = 5;
                 break;
             default:
+                parkId = 999;
                 break;
         }
         Date ticketDate = new Date();
