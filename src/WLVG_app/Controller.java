@@ -166,7 +166,7 @@ public class Controller {
         //generating a new random...
         GenerateWaitTimes generator = new GenerateWaitTimes();
 
-        RideDetails r1 = new RideDetails("WallyCoaster 5", generator.generateRandomTime(), "10:00am-8:00pm", 10);
+        RideDetails r1 = new RideDetails("WallyCoaster Extreme", generator.generateRandomTime(), "10:00am-10:00pm", 10);
         rideList.add(r1);
 
         //to add a new value, just add another value to the list
