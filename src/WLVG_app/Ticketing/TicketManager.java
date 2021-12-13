@@ -7,6 +7,7 @@ package WLVG_app.Ticketing;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -63,12 +64,20 @@ public class TicketManager {
 
     //Generate the default dates - the next week
     private void GenerateDefaultDates() {
-        Date date1 = new Date(1, 1, 1);
-        Date date2 = new Date(1, 1, 2);
-        Date date3 = new Date(1, 1, 3);
-        Date date4 = new Date(1, 1, 4);
-        Date date5 = new Date(1, 1, 5);
-        Date date6 = new Date(1, 1, 6);
+        //current date 
+        Calendar cal = Calendar.getInstance();
+
+        Date date1 = cal.getTime();
+        cal.add(Calendar.DATE, 1);
+        Date date2 = cal.getTime();
+        cal.add(Calendar.DATE, 1);
+        Date date3 = cal.getTime();
+        cal.add(Calendar.DATE, 1);
+        Date date4 = cal.getTime();
+        cal.add(Calendar.DATE, 1);
+        Date date5 = cal.getTime();
+        cal.add(Calendar.DATE, 1);
+        Date date6 = cal.getTime();
 
         this.possibleDates.add(date1);
         this.possibleDates.add(date2);

@@ -294,7 +294,6 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Get what's needed to fill values
-
                 ticketManager = new TicketManager();
                 JComboBox dateBox = ticketsPanel.getDateComboBox();
                 JComboBox locationBox = ticketsPanel.getLocationComboBox();
@@ -364,12 +363,6 @@ public class Controller {
         int demoUserid = 1;
         int parkId = 999;
         
-        System.out.println("lcoation" + ticketLocation);
-        
-        if (ticketLocation.equals("WallyLand LA")) {
-            parkId = 0;
-        }
-
         //which park?
         switch (ticketLocation) {
             case "WallyLand LA":
@@ -394,7 +387,7 @@ public class Controller {
                 break;
         }
         Date ticketDate = new Date();
-
+        
         //generate the tickets! and add them to TicketManager
         for (int i = 0; i < ticketQuantity; i++) {
             int ticketId = ticketManager.getPurchasedTickets().size() + 1;
@@ -406,13 +399,7 @@ public class Controller {
             System.out.println(t.toString());
         }
 
-        System.out.println(bInfo.getFirstName());
-        System.out.println(bInfo.getLastName());
-        System.out.println(bInfo.getCardNumber());
-        System.out.println(bInfo.getExpirationDate());
-        System.out.println(bInfo.getSecurityCode());
-        System.out.println(bInfo.getBillingZipCode());
-
+   
     }
 
     //getter for jbaseframe 
@@ -420,8 +407,6 @@ public class Controller {
         return baseJFrame;
     }
 
-    public void getTicketValues(String location, String date, int quantity) {
-
-    }
+  
 
 }
