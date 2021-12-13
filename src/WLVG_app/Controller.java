@@ -307,7 +307,7 @@ public class Controller {
                     dateBox.addItem(d);
                 }
 
-                for (int i = 0; i < 5; i++) {
+                for (int i = 1; i < 5; i++) {
                     quantityBox.addItem(i);
                 }
 

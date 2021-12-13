@@ -38,7 +38,6 @@ public class NavigationPanel extends javax.swing.JPanel {
 
         jLabel = new javax.swing.JLabel();
         hotelBtn = new javax.swing.JButton();
-        foodBtn = new javax.swing.JButton();
         timesBtn = new javax.swing.JButton();
         paymentBtn = new javax.swing.JButton();
         ticketsBtn = new javax.swing.JButton();
@@ -51,13 +50,6 @@ public class NavigationPanel extends javax.swing.JPanel {
         hotelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hotelBtnActionPerformed(evt);
-            }
-        });
-
-        foodBtn.setText("Order Food");
-        foodBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                foodBtnActionPerformed(evt);
             }
         });
 
@@ -93,7 +85,6 @@ public class NavigationPanel extends javax.swing.JPanel {
                     .addComponent(ticketsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(timesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(hotelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -104,14 +95,12 @@ public class NavigationPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(hotelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(foodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(timesBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ticketsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(paymentBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,10 +109,6 @@ public class NavigationPanel extends javax.swing.JPanel {
     private void hotelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotelBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_hotelBtnActionPerformed
-
-    private void foodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_foodBtnActionPerformed
 
     private void timesBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesBtn2ActionPerformed
 //        this.removeAll();
@@ -148,7 +133,6 @@ public class NavigationPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton foodBtn;
     public javax.swing.JButton hotelBtn;
     private javax.swing.JLabel jLabel;
     public javax.swing.JButton paymentBtn;
