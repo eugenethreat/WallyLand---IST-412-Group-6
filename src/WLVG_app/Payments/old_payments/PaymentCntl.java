@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WLVG_app.Payments;
+package WLVG_app.Payments.old_payments;
+
+import WLVG_app.Payments.BillingInfo;
 
 /**
  * controller for the payment list

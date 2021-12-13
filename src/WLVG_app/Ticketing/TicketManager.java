@@ -23,6 +23,7 @@ public class TicketManager {
      */
     private ArrayList<Park> listOfParks = new ArrayList();
     private ArrayList<Date> possibleDates = new ArrayList();
+    private ArrayList<Ticket> purchasedTickets = new ArrayList();
 
     public TicketManager() {
         //The next seven days 
@@ -104,6 +105,15 @@ public class TicketManager {
      */
     public void setPossibleDates(ArrayList<Date> possibleDates) {
         this.possibleDates = possibleDates;
+    }
+
+    public void addNewTicket(Ticket newTicket) {
+        purchasedTickets.add(newTicket);
+        System.out.println("Ticket added");
+    }
+
+    public ArrayList<Ticket> getPurchasedTickets() {
+        return purchasedTickets;
     }
 
 }

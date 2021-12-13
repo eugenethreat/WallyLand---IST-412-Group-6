@@ -5,11 +5,11 @@
  */
 package WLVG_app;
 
-import WLVG_app.Payments.PaymentList;
+import WLVG_app.Payments.old_payments.PaymentList;
 import WLVG_app.ViewWaitTimes.RideDetails;
 import WLVG_app.ViewWaitTimes.GenerateWaitTimes;
 import WLVG_app.ViewWaitTimes.Map;
-import WLVG_app.Payments.UserList;
+import WLVG_app.Payments.old_payments.UserList;
 import WLVG_app.OrderFood.MenuList;
 import WLVG_app.Ticketing.Park;
 import WLVG_app.Ticketing.Ticket;
