@@ -60,6 +60,11 @@ public class Ticket {
         return ticketValidDuring;
     }
     
+    @Override 
+    public String toString(){
+        return "Ticket Id:" + this.id + " userId:" + this.userId + " ParkId:" + this.parkId + " Validity:" + this.ticketValidDuring;
+    }
+    
     
     
     

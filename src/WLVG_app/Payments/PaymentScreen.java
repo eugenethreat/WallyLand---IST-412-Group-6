@@ -5,7 +5,10 @@
 package WLVG_app.Payments;
 
 import WLVG_app.Controller;
+import WLVG_app.Views.Baseframe;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -48,6 +51,20 @@ public class PaymentScreen extends javax.swing.JFrame {
         securityCodeField = new javax.swing.JTextField();
         pageTitle = new javax.swing.JLabel();
         submitPaymentBtn = new javax.swing.JButton();
+
+        //Back to home 
+        backToHomebutton = new JButton("Home");
+        backToHomebutton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Baseframe baseJFrame = cntl.getbaseJFrame();
+                JPanel cards = baseJFrame.getCardPanel();
+                cntl.getbaseJFrame().getCardLayout().show(cards, "navigation");
+
+            }
+        });
+
+        this.add(backToHomebutton);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -276,6 +293,7 @@ public class PaymentScreen extends javax.swing.JFrame {
     public javax.swing.JTextField securityCodeField;
     public javax.swing.JButton submitPaymentBtn;
     public javax.swing.JTextField zipCodeField;
+    public JButton backToHomebutton;
     // End of variables declaration//GEN-END:variables
 
     public JTextField getCardNumberField() {
@@ -300,6 +318,10 @@ public class PaymentScreen extends javax.swing.JFrame {
 
     public JTextField getZipcodeTxtField() {
         return securityCodeField;
+    }
+
+    public JButton getBackToHomebutton() {
+        return backToHomebutton;
     }
 
 }

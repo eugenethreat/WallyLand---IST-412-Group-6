@@ -8,8 +8,6 @@ package WLVG_app;
 import WLVG_app.Login.LoginPanel;
 import WLVG_app.Login.NavigationPanel;
 import WLVG_app.Payments.BillingInfo;
-import WLVG_app.Payments.PaymentCntl;
-import WLVG_app.Payments.PaymentUI;
 import WLVG_app.ViewWaitTimes.GenerateWaitTimes;
 import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.ViewWaitTimes.RideDetails;
@@ -20,6 +18,7 @@ import WLVG_app.BookHotels.HotelListPanel;
 import WLVG_app.Payments.PaymentScreen;
 import WLVG_app.Ticketing.BuyTicketsPanel;
 import WLVG_app.Ticketing.Park;
+import WLVG_app.Ticketing.Ticket;
 import WLVG_app.Ticketing.TicketManager;
 import ca.odell.glazedlists.EventList;
 import com.google.gson.Gson;
@@ -29,14 +28,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Time;
 import java.util.Date;
-import java.util.Enumeration;
-import javax.swing.AbstractButton;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 
 /**
  *
@@ -44,12 +39,10 @@ import javax.swing.JRadioButton;
  */
 public class Controller {
 
+    //Functions as view 
     private Baseframe baseJFrame;
     private Model m;
     private PaymentScreen paymentScreen = new PaymentScreen(this);
-
-    private PaymentCntl paymentController = new PaymentCntl();
-    private PaymentUI paymentUI = new PaymentUI();
 
     private HotelInputPanel hotelInput = new HotelInputPanel(this);
     private HotelListPanel hotelList = new HotelListPanel(this);
@@ -77,11 +70,6 @@ public class Controller {
         this.createNavButtonListeners();
 
         //Adding various UIs to CardView obj 
-        //payment UI 
-        this.baseJFrame.getCardPanel().add(paymentUI, "payment");
-        //Creates listener for storing payments 
-        this.createPaymentListeners();
-
         this.baseJFrame.getCardPanel().add(hotelInput, "hotelInput");
         this.baseJFrame.getCardPanel().add(hotelList, "hotelList");
 
@@ -94,12 +82,15 @@ public class Controller {
         this.baseJFrame.getCardPanel().add(navigationMenuUI, "navigation");
         this.baseJFrame.getCardPanel().add(ticketsPanel, "tickets");
 
+        //new payment 
+        this.baseJFrame.getCardPanel().add(ticketsPanel, "tickets");
+
         //All views added
         //Shows the user the login screen upon login. 
         cards = bp.getCardPanel();
         bp.getCardLayout().show(cards, "login");
 
-        //adds listeneres to navigation menu buttons 
+        //adds listeners to navigation menu buttons 
         addNavigationUIButtonListeners();
         //then, hide the buttons until user is logged in
         baseJFrame.getNavButtonLeft().setVisible(false);
@@ -128,58 +119,6 @@ public class Controller {
 
     public void backToInputs() {
         baseJFrame.getCardLayout().show(cards, "hotelInput");
-    }
-
-    //think about this better later
-    public void createPaymentListeners() {
-        JButton submitPaymentButton = paymentUI.getSubmitPaymentButton();
-        submitPaymentButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //submit a new payment based on the type
-
-                //get the payment type
-                ButtonGroup paymentTypePicker = paymentUI.getBg();
-
-                Enumeration<AbstractButton> buttonList = paymentTypePicker.getElements();
-
-                while (buttonList.hasMoreElements()) {
-                    JRadioButton button = (JRadioButton) buttonList.nextElement();
-
-                    if (button.isSelected()) {
-                        System.out.println(button.getText());
-                        //bad string matching - replace later 
-
-                        //GET THE VALUES FROM THE FIELDS 
-                        String fName = paymentUI.getNameField().getText();
-                        String lName = paymentUI.getlastNameField().getText();
-//                        double ccNum = Double.parseDouble(paymentUI.getCardNumField().getText());
-//                        int ccExpDate = Integer.parseInt(paymentUI.getExpDateField().getText());
-//                        int ccCode = Integer.parseInt(paymentUI.getSecurityCodeField().getText());
-//                        int zip = Integer.parseInt(paymentUI.getZipCodeField().getText());
-
-                        //These should really be strings to prevent issues such as spacing getting in the way
-                        double ccNum = 1.1;
-                        int ccExpDate = 1;
-                        int ccCode = 123;
-                        int zip = 123456;
-
-                        BillingInfo info = new BillingInfo(fName, lName, ccNum, ccExpDate, ccCode, zip);
-
-                        paymentController.addPayment(button.getText(), info);
-
-                    } else {
-                    }
-
-                }
-
-                System.out.println("STORED PAYMENTS ATM");
-                for (BillingInfo bi : paymentController.getPayments().getBillingInfo()) {
-                    System.out.println(bi);
-                }
-
-            }
-        });
     }
 
     //Creates the listeners for each navbar button to switch between views. 
@@ -368,26 +307,22 @@ public class Controller {
         return layout;
     }
 
-    //@deprecated - use baseJFrame.getCardLayout().show(cards, 'name') instead! 
-    /*
-    public void login() {
-        //bp.switchViews(navigationMenuUI);
-        cards = baseJFrame.getCardPanel();
-        baseJFrame.getCardLayout().show(cards, "navigation");
+    private String ticketDate;
+    private String ticketLocation;
+    private int ticketQuantity;
+
+    public void setTicketLocation(String location) {
+        ticketLocation = location;
     }
 
-    /*
-    public void switchViews(JPanel newView) {
-        baseJFrame.switchViews(newView);
+    public void setTicketDate(String date) {
+        ticketDate = date;
     }
-   
+
+    public void setTicketQuantity(int quantity) {
+        ticketQuantity = quantity;
     }
-    public void switchToWaitTimes() {
-        //bp.switchViews(tp);
-        JPanel cards = baseJFrame.getCardPanel();
-        baseJFrame.getCardLayout().show(cards, "wait_times");
-    }
-     */
+
     public void writeNewPayment(BillingInfo bInfo) {
 
         Gson gson = new Gson();
@@ -396,6 +331,52 @@ public class Controller {
             gson.toJson(bInfo, writer);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        //create a new ticket object and add it to the list. 
+
+        int demoUserid = 1;
+        int parkId = 999;
+        
+        System.out.println("lcoation" + ticketLocation);
+        
+        if (ticketLocation.equals("WallyLand LA")) {
+            parkId = 0;
+        }
+
+        //which park?
+        switch (ticketLocation) {
+            case "WallyLand LA":
+                parkId = 0;
+                break;
+            case "WallyLand Jacksonville":
+                parkId = 1;
+                break;
+            case "WallyLand Paris":
+                parkId = 2;
+                break;
+            case "WallyLand Tokyo":
+                parkId = 3;
+                break;
+            case "WallyLand Barcelona":
+                parkId = 4;
+                break;
+            case "WallyLand Shanghai":
+                parkId = 5;
+                break;
+            default:
+                break;
+        }
+        Date ticketDate = new Date();
+
+        //generate the tickets! and add them to TicketManager
+        for (int i = 0; i < ticketQuantity; i++) {
+            int ticketId = ticketManager.getPurchasedTickets().size() + 1;
+            Ticket newTicket = new Ticket(ticketId, demoUserid, parkId, ticketDate);
+            ticketManager.addNewTicket(newTicket);
+        }
+
+        for (Ticket t : ticketManager.getPurchasedTickets()) {
+            System.out.println(t.toString());
         }
 
         System.out.println(bInfo.getFirstName());
@@ -406,4 +387,14 @@ public class Controller {
         System.out.println(bInfo.getBillingZipCode());
 
     }
+
+    //getter for jbaseframe 
+    public Baseframe getbaseJFrame() {
+        return baseJFrame;
+    }
+
+    public void getTicketValues(String location, String date, int quantity) {
+
+    }
+
 }

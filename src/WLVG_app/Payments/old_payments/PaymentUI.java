@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WLVG_app.Payments;
+package WLVG_app.Payments.old_payments;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
