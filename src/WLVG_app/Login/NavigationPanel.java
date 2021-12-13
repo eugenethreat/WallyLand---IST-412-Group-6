@@ -154,8 +154,5 @@ public class NavigationPanel extends javax.swing.JPanel {
 
     }
 
-    public JButton getFoodBtn2() {
-        return foodBtn;
-    }
-
+  
 }

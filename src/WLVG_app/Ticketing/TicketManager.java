@@ -67,6 +67,7 @@ public class TicketManager {
         //current date 
         Calendar cal = Calendar.getInstance();
 
+        cal.add(Calendar.DATE, 1);
         Date date1 = cal.getTime();
         cal.add(Calendar.DATE, 1);
         Date date2 = cal.getTime();

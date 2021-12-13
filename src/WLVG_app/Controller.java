@@ -271,15 +271,6 @@ public class Controller {
             }
         });
 
-        //order food 
-        JButton foodButton = navigationMenuUI.getFoodBtn2();
-        foodButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("not implemented yet");
-            }
-        });
-
         //View wait times 
         JButton waitTimeButton = navigationMenuUI.getTimesBtn2();
         waitTimeButton.addActionListener(new ActionListener() {
