@@ -12,7 +12,6 @@ import WLVG_app.ViewWaitTimes.GenerateWaitTimes;
 import WLVG_app.ViewWaitTimes.MapUI;
 import WLVG_app.ViewWaitTimes.RideDetails;
 import WLVG_app.Views.Baseframe;
-import WLVG_app.Views.PasswordStrengthPanel;
 import WLVG_app.BookHotels.HotelInputPanel;
 import WLVG_app.BookHotels.HotelListPanel;
 import WLVG_app.Payments.PaymentScreen;
@@ -338,7 +337,7 @@ public class Controller {
     public void setTicketQuantity(int quantity) {
         ticketQuantity = quantity;
     }
-
+    
     public void writeNewPayment(BillingInfo bInfo) {
 
         Gson gson = new Gson();
