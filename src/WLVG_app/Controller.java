@@ -52,7 +52,6 @@ public class Controller {
     private String bed;
     private String layout;
 
-//    private PasswordStrengthPanel passwordStrengthUI = new PasswordStrengthPanel();
     private LoginPanel loginUI = new LoginPanel(this);
     private NavigationPanel navigationMenuUI = new NavigationPanel(this);
     private MapUI parkmapUI = new MapUI();
